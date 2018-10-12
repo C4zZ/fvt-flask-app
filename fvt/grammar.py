@@ -23,9 +23,6 @@ def buildpc(inf, pz):
     db.execute("SELECT pp FROM présent WHERE infinitiv = %s", (inf,))
     pp = db.fetchone()["pp"]
     
-    
-    #db.execute("SELECT * FROM présent WHERE infinitiv = 'être'")
-    
     if vom == "1":
         db.execute("SELECT * FROM présent WHERE infinitiv = 'être'")
         auxiliary = db.fetchone()[pz]
