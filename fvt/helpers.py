@@ -175,6 +175,7 @@ def checkVerb(toCheck, check):
     if toCheck == verbsolution:
         bitboolean = 1
 
+    # tracks the successful and failed userinputs of a given verb
     # column names for table trackUserSuccessFailure
     # error_id - error_id
     # verbform - verbform
