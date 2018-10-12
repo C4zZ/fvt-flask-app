@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+    <head>
+
+    </head>
+
+    <body>
+        <h1>HELLO</h1>
+        <button id="collect_verbs">Start</button>
+       
+        <form name="form_html" action="{{ url_for('collect') }}" method="POST">
+            <label>URL: <input type="text" name="url"></label>
+            <button type="submit">Submit URL</button>
+        </form>
+    <script type="text/javascript" src="static/collect.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </body>
+</html>

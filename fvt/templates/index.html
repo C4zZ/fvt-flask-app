@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+    <head>
+        <title>FVT | version 1.0</title>
+        <link rel="stylesheet" type="text/css" href="static/general.css">
+    </head>
+
+    <body>
+        <div id="navbardiv">
+            <div class="navbar">
+                <h1><i id="F">French</i><i id="V">Verb</i><i id="T">Trainer</i></h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="maincontainer">
+                <div id="verbdiv">
+                    <div class="newverb">
+                        <p id="verboutput" >
+                            {% if verb %}
+                                {{ verb }}
+                            {% else %}
+                                Klicke Start(Next), um zu beginnen.
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+                <form></form>
+                <div id="inputdiv">
+                    <input id="verbinput" class="input" placeholder="Your Input">
+                </div>
+
+                <div id="buttondiv">
+                    <!--<button id="nextBtn" class="Btn nextBtn">Next</button>-->
+                    <button id="nextBtn" class="Btn startBtn">Start</button>    
+                    <button id="submitBtn" class="Btn submitBtn">Submit</button>
+                </div>
+
+                <div id="helper">
+                    <button id="helpBtn" class="Btn helpBtn">?</button>
+                </div>       
+            </div>
+        </div>
+    
+        <script type="text/javascript" src="static/general.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </body>
+</html>

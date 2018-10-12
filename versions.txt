@@ -1,0 +1,7 @@
+Version 1.0:
+	- database consist of 5 verbs in the resent tense (être, aller, avoir, faire, prendre)
+	- programm tracks if user already trained this day
+		- no cookies yet
+	- each form of each verb should be typed in correctly three times (if not, user must start from beginning again)
+	- track success/failure rate of user in seperate datasheet -> only I can enter (no registering)
+	- lightweight CSS
