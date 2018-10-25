@@ -102,6 +102,9 @@ def checkVerb(toCheck, check):
 
     global zeit
     
+
+    # personalpronomen doesnt get removed and thus evvery correct verb typed in by the user 
+    # is renderd as wrong because the verbsolution doesnt contain a personalpronomen
     if toCheck.startswith("j'") or toCheck.startswith("J'"):
         toCheck = toCheck.split("'", 1)[1]
 
@@ -154,7 +157,6 @@ def checkVerb(toCheck, check):
 
     elif zeit == "Passé composé":
         verbsolution = buildpc(infinitiv, perszahl)
-
     elif zeit == "Futur composé":
         verbsolution = ""
 

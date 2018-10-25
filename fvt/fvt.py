@@ -2,6 +2,7 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 from . db import conn, db
 from . collect import URLrequesttoString
 from . helpers import newRandomVerb, checkVerb
+from .verbtraininghelper import createFile, experiment
 import random
 
 # fvt database
@@ -14,6 +15,7 @@ app.debug = True
 
 @app.route("/")
 def index():
+    experiment()
     return render_template("index.html", verb = "")
 
 

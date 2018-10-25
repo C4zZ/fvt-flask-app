@@ -1,9 +1,10 @@
+import { test } from "./verbtraininghelper.js";
 var callHelp = document.getElementById("helpBtn");
 var submitVerb = document.getElementById("submitBtn");
 var verbform = document.getElementById("verboutput");
 var userverb = document.getElementById("verbinput");
 var nextVerb = document.getElementById("nextBtn");
-var currURL = window.location.href;
+
 
 callHelp.addEventListener("click", function(){
     alert("Modal with help should pop up here");
@@ -21,7 +22,7 @@ nextVerb.addEventListener("click", function(){
 });
 
 submitVerb.addEventListener("click", function(){
-    
+    var currURL = window.location.href;
     var currverbform = verbform.innerHTML;
     var userinput = userverb.value;
     var targetURL = currURL + "validateverb";
@@ -47,6 +48,7 @@ submitVerb.addEventListener("click", function(){
                 //function for green blinking verboutput div if verb from user is right
                 alert(data);
                 console.log("Y");
+                test("loading verbs");
             } else{
                 //function for red rumbling verboutput div if verb from user is wrong
                 alert(data);
@@ -63,13 +65,14 @@ submitVerb.addEventListener("click", function(){
 });
 
 function getNewVerb(){
+    var currURL = window.location.href;
     // if statement is for bug prevention
     // wanted to try a form on the main container -> a question mark was added to url and messed up the output of the evenListener
     if(currURL[currURL.length-1] == "?"){
         currURL = currURL.substring(0, currURL.length-1);
     }
     
-    targetURL = currURL + "newverb";  
+    var targetURL = currURL + "newverb";  
     
     $.ajax({
         type: "GET",
@@ -83,6 +86,15 @@ function getNewVerb(){
             alert("Status: " + textStatus); alert("Error: " + errorThrown);
         }
     });
+}
+
+var verbtraininghelper = {
+
+    loadverbs: function(){
+        alert("loading verbs!");
+    }
+
+
 }
 
 
