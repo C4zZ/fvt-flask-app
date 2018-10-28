@@ -1,64 +1,20 @@
-[Wed Oct 24 18:41:41.453268 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00298: SIGHUP received.  Attempting to restart
-[Wed Oct 24 18:41:41.569850 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00292: Apache/2.4.33 (Unix) mod_wsgi/4.6.4 Python/3.5 configured -- resuming normal operations
-[Wed Oct 24 18:41:41.569877 2018] [core:notice] [pid 62278:tid 140607525963648] AH00094: Command line: '/home/deev/webapps/fvt/apache2/bin/httpd.worker -f /home/deev/webapps/fvt/apache2/conf/httpd.conf'
-[Wed Oct 24 18:42:10.665631 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878] mod_wsgi (pid=48535): Exception occurred processing WSGI script '/home/deev/webapps/fvt/htdocs/index.py'.
-[Wed Oct 24 18:42:10.668863 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878] Traceback (most recent call last):
-[Wed Oct 24 18:42:10.668985 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 2309, in __call__
-[Wed Oct 24 18:42:10.668996 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     return self.wsgi_app(environ, start_response)
-[Wed Oct 24 18:42:10.669008 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 2295, in wsgi_app
-[Wed Oct 24 18:42:10.669015 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     response = self.handle_exception(e)
-[Wed Oct 24 18:42:10.669026 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1741, in handle_exception
-[Wed Oct 24 18:42:10.669032 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     reraise(exc_type, exc_value, tb)
-[Wed Oct 24 18:42:10.669043 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
-[Wed Oct 24 18:42:10.669049 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     raise value
-[Wed Oct 24 18:42:10.669059 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
-[Wed Oct 24 18:42:10.669065 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     response = self.full_dispatch_request()
-[Wed Oct 24 18:42:10.669075 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
-[Wed Oct 24 18:42:10.669081 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     rv = self.handle_user_exception(e)
-[Wed Oct 24 18:42:10.669091 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
-[Wed Oct 24 18:42:10.669097 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     reraise(exc_type, exc_value, tb)
-[Wed Oct 24 18:42:10.669107 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
-[Wed Oct 24 18:42:10.669113 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     raise value
-[Wed Oct 24 18:42:10.669123 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
-[Wed Oct 24 18:42:10.669130 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     rv = self.dispatch_request()
-[Wed Oct 24 18:42:10.669151 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
-[Wed Oct 24 18:42:10.669158 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     return self.view_functions[rule.endpoint](**req.view_args)
-[Wed Oct 24 18:42:10.669172 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 51, in validateverb
-[Wed Oct 24 18:42:10.669201 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     isverb = checkVerb(userinput, answer)
-[Wed Oct 24 18:42:10.669217 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 156, in checkVerb
-[Wed Oct 24 18:42:10.669223 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     verbsolution = buildpc(infinitiv, perszahl)
-[Wed Oct 24 18:42:10.669233 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]   File "/home/deev/webapps/fvt/htdocs/fvt/grammar.py", line 28, in buildpc
-[Wed Oct 24 18:42:10.669239 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878]     return "VOM:" + vom
-[Wed Oct 24 18:42:10.669272 2018] [wsgi:error] [pid 48535:tid 140607339800320] [remote 127.0.0.1:34878] TypeError: Can't convert 'int' object to str implicitly
-[Wed Oct 24 18:46:04.375229 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00298: SIGHUP received.  Attempting to restart
-[Wed Oct 24 18:46:04.482963 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00292: Apache/2.4.33 (Unix) mod_wsgi/4.6.4 Python/3.5 configured -- resuming normal operations
-[Wed Oct 24 18:46:04.482983 2018] [core:notice] [pid 62278:tid 140607525963648] AH00094: Command line: '/home/deev/webapps/fvt/apache2/bin/httpd.worker -f /home/deev/webapps/fvt/apache2/conf/httpd.conf'
-[Wed Oct 24 18:46:19.068418 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936] mod_wsgi (pid=58151): Exception occurred processing WSGI script '/home/deev/webapps/fvt/htdocs/index.py'.
-[Wed Oct 24 18:46:19.070270 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936] Traceback (most recent call last):
-[Wed Oct 24 18:46:19.070378 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 2309, in __call__
-[Wed Oct 24 18:46:19.070387 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     return self.wsgi_app(environ, start_response)
-[Wed Oct 24 18:46:19.070397 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 2295, in wsgi_app
-[Wed Oct 24 18:46:19.070403 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     response = self.handle_exception(e)
-[Wed Oct 24 18:46:19.070412 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1741, in handle_exception
-[Wed Oct 24 18:46:19.070417 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     reraise(exc_type, exc_value, tb)
-[Wed Oct 24 18:46:19.070426 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
-[Wed Oct 24 18:46:19.070432 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     raise value
-[Wed Oct 24 18:46:19.070440 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 2292, in wsgi_app
-[Wed Oct 24 18:46:19.070446 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     response = self.full_dispatch_request()
-[Wed Oct 24 18:46:19.070466 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1815, in full_dispatch_request
-[Wed Oct 24 18:46:19.070472 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     rv = self.handle_user_exception(e)
-[Wed Oct 24 18:46:19.070483 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1718, in handle_user_exception
-[Wed Oct 24 18:46:19.070488 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     reraise(exc_type, exc_value, tb)
-[Wed Oct 24 18:46:19.070496 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/_compat.py", line 35, in reraise
-[Wed Oct 24 18:46:19.070501 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     raise value
-[Wed Oct 24 18:46:19.070510 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1813, in full_dispatch_request
-[Wed Oct 24 18:46:19.070519 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     rv = self.dispatch_request()
-[Wed Oct 24 18:46:19.070528 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
-[Wed Oct 24 18:46:19.070533 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     return self.view_functions[rule.endpoint](**req.view_args)
-[Wed Oct 24 18:46:19.070545 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 51, in validateverb
-[Wed Oct 24 18:46:19.070550 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     isverb = checkVerb(userinput, answer)
-[Wed Oct 24 18:46:19.070559 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 156, in checkVerb
-[Wed Oct 24 18:46:19.070564 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     verbsolution = buildpc(infinitiv, perszahl)
-[Wed Oct 24 18:46:19.070572 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]   File "/home/deev/webapps/fvt/htdocs/fvt/grammar.py", line 28, in buildpc
-[Wed Oct 24 18:46:19.070577 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936]     return "VOM:" + vom
-[Wed Oct 24 18:46:19.070606 2018] [wsgi:error] [pid 58151:tid 140607339800320] [remote 127.0.0.1:57936] TypeError: Can't convert 'int' object to str implicitly
+[Sun Oct 28 16:58:34.222334 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00298: SIGHUP received.  Attempting to restart
+[Sun Oct 28 16:58:34.322721 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00292: Apache/2.4.33 (Unix) mod_wsgi/4.6.4 Python/3.5 configured -- resuming normal operations
+[Sun Oct 28 16:58:34.322740 2018] [core:notice] [pid 62278:tid 140607525963648] AH00094: Command line: '/home/deev/webapps/fvt/apache2/bin/httpd.worker -f /home/deev/webapps/fvt/apache2/conf/httpd.conf'
+[Sun Oct 28 17:01:23.959273 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00298: SIGHUP received.  Attempting to restart
+[Sun Oct 28 17:01:24.063060 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00292: Apache/2.4.33 (Unix) mod_wsgi/4.6.4 Python/3.5 configured -- resuming normal operations
+[Sun Oct 28 17:01:24.063107 2018] [core:notice] [pid 62278:tid 140607525963648] AH00094: Command line: '/home/deev/webapps/fvt/apache2/bin/httpd.worker -f /home/deev/webapps/fvt/apache2/conf/httpd.conf'
+[Sun Oct 28 17:03:52.123140 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00298: SIGHUP received.  Attempting to restart
+[Sun Oct 28 17:03:52.240759 2018] [mpm_worker:notice] [pid 62278:tid 140607525963648] AH00292: Apache/2.4.33 (Unix) mod_wsgi/4.6.4 Python/3.5 configured -- resuming normal operations
+[Sun Oct 28 17:03:52.240781 2018] [core:notice] [pid 62278:tid 140607525963648] AH00094: Command line: '/home/deev/webapps/fvt/apache2/bin/httpd.worker -f /home/deev/webapps/fvt/apache2/conf/httpd.conf'
+[Sun Oct 28 17:03:55.564971 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020] mod_wsgi (pid=54487): Failed to exec Python script file '/home/deev/webapps/fvt/htdocs/index.py'.
+[Sun Oct 28 17:03:55.565041 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020] mod_wsgi (pid=54487): Exception occurred processing WSGI script '/home/deev/webapps/fvt/htdocs/index.py'.
+[Sun Oct 28 17:03:55.565536 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020] Traceback (most recent call last):
+[Sun Oct 28 17:03:55.565566 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020]   File "/home/deev/webapps/fvt/htdocs/index.py", line 11, in <module>
+[Sun Oct 28 17:03:55.565571 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020]     from fvt.fvt import app as application
+[Sun Oct 28 17:03:55.565577 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 4, in <module>
+[Sun Oct 28 17:03:55.565580 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020]     from . helpers import newRandomVerb, checkVerb
+[Sun Oct 28 17:03:55.565596 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 206
+[Sun Oct 28 17:03:55.565604 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020]     return jsonify("status": "ok", "data": data)
+[Sun Oct 28 17:03:55.565628 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020]                            ^
+[Sun Oct 28 17:03:55.565636 2018] [wsgi:error] [pid 54487:tid 140607339800320] [remote 127.0.0.1:59020] SyntaxError: invalid syntax

@@ -1,4 +1,20 @@
-import { callHelp, submitVerb, verbform, userVerb, nextVerb } from "./general.js";
+import { callHelp, submitVerb, verbform, userVerb, nextVerb, currURL } from "./general.js";
+import { verbDictionary } from "./verbDictionary.js";
+
+
+/**
+ * @description currentVerbDictionary is a global javascriptesque dictionary for tracking which 
+ * verbforms the user needs to type in 3 times correctly. At first it is undefined. 
+ * It gets initialized when startVerbtraining() gets called.
+ */ 
+var currentVerbDictionary;
+
+/**
+ * @description currentVerbformComponents is an array containing all grammatically important elements
+ * of the verbform. Important for updating the verbDictionary to keeptrack of which verbsforms
+ * the user has already typed in 3 times successfully and which not.
+ */
+var currentVerbformComponents = [];
 
 export function startVerbtraining(){
     if(nextVerb.classList.contains("startBtn")){
@@ -6,12 +22,20 @@ export function startVerbtraining(){
         nextVerb.classList.add("nextBtn");
         nextVerb.innerHTML = "Next Verb";
     }
+
+    var verbs = ["aller", "prendre", "faire", "avoir", "être"];
+    var tenses = ["Präsens", "Passé composé", "Passé simple", "Imparfait", "Futur composé", "Futur simple"];
+    //testvariables
+    //var verbs = ["faire"];
+    //var tenses = ["Passé composé"];
+
+    currentVerbDictionary = new verbDictionary(verbs, tenses);
+    currentVerbDictionary.loadDictionary();
     
     getNewVerb();
 }
 
 export function checkUserVerbInput(){
-    var currURL = window.location.href;
     var currverbform = verbform.innerHTML;
     var userinput = userVerb.value;
     var targetURL = currURL + "validateverb";
@@ -33,32 +57,29 @@ export function checkUserVerbInput(){
         data: data,
         cache: false,
         success: function(data){
-            if(data == true){
+            var data = JSON.parse(data).data;
+
+            if(data[0] == 1){
                 //function for green blinking verboutput div if verb from user is right
-                alert(data);
                 console.log("Y");
-            } else{
+                currentVerbDictionary.updateDictionary(currentVerbformComponents, true);
+            } else {
                 //function for red rumbling verboutput div if verb from user is wrong
-                alert(data);
                 console.log("N");
+                currentVerbDictionary.updateDictionary(currentVerbformComponents, false);
             } 
             
+            //alert("current amount: " + currentVerbDictionary.dictionary[currentVerbformComponents[0]][currentVerbformComponents[1]][currentVerbformComponents[2]][currentVerbformComponents[3]] );
+            console.log(JSON.stringify(currentVerbDictionary.dictionary, null, 2));
             getNewVerb();
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             alert("Status: " + textStatus); alert("Error: " + errorThrown);
-        }
+        }        
     });
 }
 
 function getNewVerb(){
-    var currURL = window.location.href;
-    // if statement is for bug prevention
-    // wanted to try a form on the main container -> a question mark was added to url and messed up the output of the evenListener
-    if(currURL[currURL.length-1] == "?"){
-        currURL = currURL.substring(0, currURL.length-1);
-    }
-    
     var targetURL = currURL + "newverb";  
     
     $.ajax({
@@ -67,11 +88,12 @@ function getNewVerb(){
         data: "",
         cache: false,
         success: function(data){
-            document.getElementById("verboutput").innerHTML = data;
+            document.getElementById("verboutput").innerHTML = data[0];
+
+            currentVerbformComponents = data[1];
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             alert("Status: " + textStatus); alert("Error: " + errorThrown);
         }
     });
 };
-

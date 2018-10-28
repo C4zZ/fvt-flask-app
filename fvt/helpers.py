@@ -3,6 +3,8 @@ import datetime
 from . db import conn, db
 import pymysql as MySQLdb
 from . grammar import *
+import json
+from flask import jsonify
 
 '''
     zeit = [
@@ -73,9 +75,11 @@ def newRandomVerb():
     randint = random.randint(0, verbslen)
     verb = verbs[randint]
 
-    res = person + ". Person " + zahl + ", " + zeit + " von " + verb + "." 
 
-    return res
+    verbViewForm = person + ". Person " + zahl + ", " + zeit + " von " + verb + "." 
+    verbComponents = [verb, zeit, zahl, person]
+    res = [verbViewForm, verbComponents]
+    return jsonify(res)
 
 
 def checkVerb(toCheck, check):
@@ -198,7 +202,10 @@ def checkVerb(toCheck, check):
     
     conn.commit()
     
-    return bitboolean
+    data = [bitboolean, verbform]
+    # with jsonify data gets returned as a string
+    # ensure_ascii is off to prevent characters with accents to get encoded 
+    return json.dumps({'data': data}, ensure_ascii=False)
 
 
 # seperate helper functions

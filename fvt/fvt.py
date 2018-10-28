@@ -49,4 +49,4 @@ def validateverb():
     answer = request.form.get("verbform")
     userinput = request.form.get("userverb")
     isverb = checkVerb(userinput, answer)
-    return str(isverb)
+    return isverb
