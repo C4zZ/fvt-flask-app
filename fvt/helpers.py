@@ -22,7 +22,7 @@ from flask import jsonify
 # for the Impérativ only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)
 
 zeit = [
-        "Präsens",
+        "Présent",
         "Passé composé",
         "Futur composé"
         #"Impérativ"

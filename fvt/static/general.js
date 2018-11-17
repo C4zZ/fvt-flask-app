@@ -1,19 +1,35 @@
-import { startVerbtraining, checkUserVerbInput } from "./Verbtraining.js";
+import { startVerbtraining, checkUserVerbInput, startVerbtrainingDummy } from "./Verbtraining.js";
+import { toggleDivWithId } from "./style.js";
 
-var callHelp = document.getElementById("helpBtn");
-var submitVerb = document.getElementById("submitBtn");
-var verbform = document.getElementById("verboutput");
-var userVerb = document.getElementById("verbinput");
-var nextVerb = document.getElementById("nextBtn");
+let callHelp = document.getElementById("helpBtn");
+let submitVerb = document.getElementById("submitBtn");
+let verbform = document.getElementById("verboutput");
+let userVerb = document.getElementById("verbinput");
+let nextVerb = document.getElementById("nextBtn");
+let verbinput = document.getElementById("verbinput");
+let settingsMenuCloseButton = document.getElementById("settings-menu-close-button");
+let callOptions = document.getElementById("optionsBtn"); 
+let verbformContainer = document.getElementById("verbdiv");
+let dummyVerbtraining = document.getElementById("settings-menu-dummy-button");
+
 
 var currURL = window.location.href;
 
+
 // exportin Ids
-export { callHelp, submitVerb, verbform, userVerb, nextVerb };
+export { callHelp, submitVerb, verbform, userVerb, nextVerb, verbinput, verbformContainer };
 // export values
 export { currURL }; 
 callHelp.addEventListener("click", function(){
-    alert("Modal with help should pop up here");
+    alert("Help menu here!");
+});
+
+settingsMenuCloseButton.addEventListener("click", function(){
+    toggleDivWithId("settings-menu");
+});
+
+callOptions.addEventListener("click", function(){
+    toggleDivWithId("settings-menu");
 });
 
 nextVerb.addEventListener("click", function(){
@@ -24,4 +40,6 @@ submitVerb.addEventListener("click", function(){
     checkUserVerbInput();
 });
 
-
+dummyVerbtraining.addEventListener("click", function(){
+    startVerbtrainingDummy();
+});

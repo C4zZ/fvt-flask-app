@@ -1,6 +1,5 @@
-import { callHelp, submitVerb, verbform, userVerb, nextVerb, currURL } from "./general.js";
+import { callHelp, submitVerb, verbform, userVerb, nextVerb, currURL, verbformContainer } from "./general.js";
 import { verbDictionary } from "./verbDictionary.js";
-
 
 /**
  * @description currentVerbDictionary is a global javascriptesque dictionary for tracking which 
@@ -11,7 +10,7 @@ var currentVerbDictionary;
 
 /**
  * @description currentVerbformComponents is an array containing all grammatically important elements
- * of the verbform. Important for updating the verbDictionary to keeptrack of which verbsforms
+ * of the verbform. Important for updating the verbDictionary to keep track of which verbforms
  * the user has already typed in 3 times successfully and which not.
  */
 var currentVerbformComponents = [];
@@ -23,11 +22,10 @@ export function startVerbtraining(){
         nextVerb.innerHTML = "Next Verb";
     }
 
-    var verbs = ["aller", "prendre", "faire", "avoir", "être"];
-    var tenses = ["Präsens", "Passé composé", "Passé simple", "Imparfait", "Futur composé", "Futur simple"];
-    //testvariables
-    //var verbs = ["faire"];
-    //var tenses = ["Passé composé"];
+    let verbs = getSelectedItems("verbs-scrollbox-form");
+
+    let tenses = getSelectedItems("tenses-scrollbox-form");
+    
 
     currentVerbDictionary = new verbDictionary(verbs, tenses);
     currentVerbDictionary.loadDictionary();
@@ -66,6 +64,10 @@ export function checkUserVerbInput(){
             } else {
                 //function for red rumbling verboutput div if verb from user is wrong
                 console.log("N");
+                verbformContainer.classList.add("animation-shake");
+                setTimeout(function(){
+                    verbformContainer.classList.remove("animation-shake");
+                }, 500);
                 currentVerbDictionary.updateDictionary(currentVerbformComponents, false);
             } 
             
@@ -97,3 +99,29 @@ function getNewVerb(){
         }
     });
 };
+
+function getSelectedItems(formId){
+    let form = document.getElementById(formId).getElementsByTagName("li");
+    let elementsNames = [];
+
+    for(let i = 0; i < form.length; i++){
+        let currentItem = form.item(i).getElementsByTagName("input");
+        if(currentItem.item(0).checked){
+            let tenseName = form.item(i).getElementsByTagName("label").item(0).innerHTML;
+            elementsNames.push(tenseName);
+        }
+    }
+
+    return elementsNames;
+}
+
+export function startVerbtrainingDummy(){
+    let tenses = getSelectedItems("tenses-scrollbox-form");
+    
+    let verbs = getSelectedItems("verbs-scrollbox-form");
+
+    alert("" + JSON.stringify(tenses));
+
+    alert("" + JSON.stringify(verbs));
+
+}

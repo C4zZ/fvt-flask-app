@@ -33,13 +33,65 @@
                     <!--<button id="nextBtn" class="Btn nextBtn">Next</button>-->
                     <button id="nextBtn" class="Btn startBtn">Start</button>    
                     <button id="submitBtn" class="Btn submitBtn">Submit</button>
+                    <button id="optionsBtn" class="Btn optionsBtn">Options</button>
                 </div>
 
-                <div id="helper">
-                    <button id="helpBtn" class="Btn helpBtn">?</button>
-                </div>       
+                
+     
             </div>
         </div>
+
+        <div id="settings-menu" class="notVisible">
+            <div id="settings-menu-container">
+                <div id="settings-menu-container-header">
+                </div>
+                <div id="settings-menu-container-body">
+                    <div id="settings-menu-form-container">
+                        <div id="verbs-scrollbox">
+                            <form id="verbs-scrollbox-form">
+                                <ul>
+                                    <li>
+                                        <label for="être">être</label><input type="checkbox" id="être-checkbox" name="être" checked>
+                                    </li>
+                                    <li>
+                                        <label for="faire">faire</label><input type="checkbox" id="faire-checkbox" name="faire" checked>
+                                    </li>
+                                    <li>
+                                        <label for="aller">aller</label><input type="checkbox" id="aller-checkbox" name="aller" checked>
+                                    </li>
+                                    <li>
+                                        <label for="prendre">prendre</label><input type="checkbox" id="prendre-checkbox" name="prendre" checked>
+                                    </li>
+                                    <li>
+                                        <label for="avoir">avoir</label><input type="checkbox" id="avoir-checkbox" name="avoir" checked>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                        <div id="tenses-scrollbox">
+                            <form id="tenses-scrollbox-form">
+                                <ul>
+                                    <li>
+                                        <label for="présent">Präsens</label><input type="checkbox" id="présent-checkbox" name="présent" checked>
+                                    </li>
+                                    <li>
+                                        <label for="passé-composé">Passé composé</label><input type="checkbox" id="passé-composé-checkbox" name="passé-composé" checked>
+                                    </li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div id="settings-menu-container-footer">
+                    <button id="settings-menu-dummy-button">GetTensesVerbsDummyBtn</button>
+                    <button id="settings-menu-close-button" class="Btn" >Close</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="helper">
+            <button id="helpBtn" class="Btn helpBtn">?</button>
+        </div> 
     
         <script type="module" src="static/general.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
