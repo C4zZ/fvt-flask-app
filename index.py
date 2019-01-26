@@ -9,4 +9,4 @@ with open(activate) as f:
     exec(f.read(), {"__file__": activate})
 sys.path.append(PROJECT_DIR)
 
-from fvt.fvt import app as application
+from fvt.app import app as application
