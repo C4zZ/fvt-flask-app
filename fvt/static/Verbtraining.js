@@ -83,16 +83,23 @@ export function checkUserVerbInput(){
 
 function getNewVerb(){
     var targetURL = currURL + "newverb";  
-    
+    let data = {
+        verbDictionary : JSON.stringify(currentVerbDictionary),
+        testvar: "lol"
+    }
     $.ajax({
-        type: "GET",
+        //vorher GET???
+        type: "POST",
         url: targetURL,
-        data: "",
-        cache: false,
+        data: data,
         success: function(data){
+            alert("" + data);
+            
+            /*
             document.getElementById("verboutput").innerHTML = data[0];
 
             currentVerbformComponents = data[1];
+            */
         },
         error: function(XMLHttpRequest, textStatus, errorThrown){
             alert("Status: " + textStatus); alert("Error: " + errorThrown);
