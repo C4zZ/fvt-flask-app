@@ -1,0 +1,7 @@
+/venv
+fvt/__pycache__/db.cpython-35.pyc
+fvt/__pycache__/helpers.cpython-35.pyc
+fvt/__pycache__/__init__.cpython-35.pyc
+fvt/__pycache__/collect.cpython-35.pyc
+fvt/__pycache__/app.cpython-35.pyc
+fvt/error_fvt.log

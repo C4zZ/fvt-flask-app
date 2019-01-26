@@ -1,3 +1,4 @@
+#index.py is necessary for setting this app up on an actual website
 import os, sys
 sys.path.append("/home/deev/webapps/fvt/htdocs")
 sys.path.append("/home/deev/webapps/fvt/htdocs/fvt")
