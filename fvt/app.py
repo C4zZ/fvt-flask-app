@@ -10,11 +10,13 @@ import random
 # 3iRLJcC40xkyI8JIZTpv
 
 app = Flask(__name__)
-app.debug = True
 
 @app.route("/")
 def index():
     return render_template("index.html", verb = "")
+    #return render_template("testing.html")
+    
+    
 
 
 @app.route("/collect", methods=["POST", "GET"])

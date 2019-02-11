@@ -7,3 +7,4 @@ fvt/__pycache__/app.cpython-35.pyc
 fvt/error_fvt.log
 fvt/db.py
 fvt/__pycache__
+fvt/.flaskenv
