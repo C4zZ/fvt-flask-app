@@ -3,20 +3,13 @@ from . db import conn, db
 from . collect import URLrequesttoString
 from . helpers import newRandomVerb, checkVerb
 import random
+from .application_factory import create_factory
 
-# fvt database
-#
-# schema
-# 3iRLJcC40xkyI8JIZTpv
-
-app = Flask(__name__)
+app = create_factory()
 
 @app.route("/")
 def index():
     return render_template("index.html", verb = "")
-    #return render_template("testing.html")
-    
-    
 
 
 @app.route("/collect", methods=["POST", "GET"])
