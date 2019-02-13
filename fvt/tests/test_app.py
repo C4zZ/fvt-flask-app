@@ -1,11 +1,10 @@
-from .. import create_app
-from flask import request
+import pytest
+from flask import url_for, request
 
-def test_methods():
-    a = 2
-    b = 2
-    assert a == b 
 
-def test_app():
-    #app = create_app()
-    pass
+class TestApp:
+
+    def test_ping(self, client):
+        res = client.get("/")
+        assert res.status_code == 200
+        
