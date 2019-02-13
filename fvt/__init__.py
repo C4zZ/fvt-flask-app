@@ -15,6 +15,12 @@ import random
 """
 
 def create_app(config_filename=None):
+    """ create_app instantiates a Flask object for the fvt object with all of its endpoints
+        respectively
+    
+    Keyword Arguments:
+        config_filename {[type]} -- [description] (default: {None})
+    """
     app = Flask(__name__, instance_relative_config=True)
     #app.config.from_pyfile(config_filename)
     #initialize_extensions(app)

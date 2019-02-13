@@ -7,6 +7,7 @@ from .. import create_app
 def app():
     app = create_app()
     app.debug = True
+    app.testing = True
     return app
 
 @pytest.fixture
