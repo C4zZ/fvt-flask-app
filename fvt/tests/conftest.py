@@ -1,8 +1,8 @@
 import pytest
-
 from .. import create_app
 
-
+""" conftest.py defines pytest fixtures which are useful for testing this application. 
+"""
 @pytest.fixture
 def app():
     app = create_app()

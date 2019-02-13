@@ -10,6 +10,10 @@ import random
 # schema
 # 3iRLJcC40xkyI8JIZTpv
 
+""" __init__.py contains mostly application factory methods. For now mainly
+    the create_app() method
+"""
+
 def create_app(config_filename=None):
     app = Flask(__name__, instance_relative_config=True)
     #app.config.from_pyfile(config_filename)
