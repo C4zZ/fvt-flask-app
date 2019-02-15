@@ -1,7 +1,10 @@
 import pytest
+from ..verb import Verb 
 
 class TestVerb:
 
     def test_verb1(self):
-        pass
+        verb = Verb()
+        verb.foo()
+
 
