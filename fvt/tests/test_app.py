@@ -21,10 +21,14 @@ class TestApp:
     
     def test_newverb_GET_200_response(self, client):
         res = client.open("/newverb")
-        assert res.data.decode("utf-8") != ""
-    
-    '''
-    def test_validateverb_POST_200_response(self, client):
-        res = client.post("/validateverb")
         assert res.status_code == 200
-    '''
+    
+    def test_newverb_GET_nonempty_String(self, client):
+        res = client.open("/newverb")
+        assert res.data.decode("utf-8") != ""
+        assert len(res.data) > 0 
+    
+    def test_validateverb_POST_200_response(self, client):
+        res = client.post("/validateverb", "TESTSTRING")
+        assert res.status_code == 200
+    
