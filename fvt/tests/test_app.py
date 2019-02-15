@@ -25,16 +25,15 @@ class TestApp:
         assert res.status_code == 200
     
     def test_newverb_GET_nonempty_String(self, client):
-
-        assert client.open("/newverb").data.decode("utf-8") != ""
-        assert len(client.open("/newverb").data) > 0 
+        res = client.open("/newverb")
+        assert res.data.decode("utf-8") != ""
+        assert len(res.data) > 0 
     
     def test_validateverb_POST_200_response(self, client):
         dummydata = {
             "verbform": newRandomVerb(),
             "userinput": "userinput"
         }
-        res = client.post("/validateverb", data=dummydata
-        )
+        res = client.post("/validateverb", data=dummydata)
         assert res.status_code == 200
     
