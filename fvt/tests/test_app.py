@@ -1,5 +1,6 @@
 import pytest
 from flask import url_for, request
+from ..helpers import newRandomVerb
 
 
 class TestApp:
@@ -30,8 +31,8 @@ class TestApp:
     
     def test_validateverb_POST_200_response(self, client):
         dummydata = {
-            "verbform": "asd",
-            "userverb": "test"
+            "verbform": newRandomVerb(),
+            "userinput": "userinput"
         }
         res = client.post("/validateverb", data=dummydata
         )
