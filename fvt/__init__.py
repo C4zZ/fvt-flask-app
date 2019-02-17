@@ -54,13 +54,15 @@ def create_app(config_filename=None):
 
     @app.route("/validateverb", methods=["POST"])
     def validateverb():
-        return request.form.get("verbform")
-        '''
+        
+        
         answer = request.form.get("verbform")
         userinput = request.form.get("userverb")
         isverb = checkVerb(userinput, answer)
         return str(isverb)
-        '''
+
+        return request.form.get("verbform")
+
     return app
 
 if __name__ == "__main__":

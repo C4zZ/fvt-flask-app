@@ -32,7 +32,23 @@ class TestApp:
     def test_validateverb_POST_200_response(self, client):
         dummydata = {
             "verbform": newRandomVerb(),
-            "userinput": "userinput"
+            "userverb": "userinput"
+        }
+        res = client.post("/validateverb", data=dummydata)
+        assert res.status_code == 200
+
+    def test_validateverb_POST_userinput_success(self, client):
+        dummydata = {
+            "verbform": "2. Person Singular, Passé composé von avoir.",
+            "userverb": "tu as eu"
+        }
+        res = client.post("/validateverb", data=dummydata)
+        assert res.data == "lol"
+    
+    def test_validateverb_POST_userinput_fail(self, client):
+        dummydata = {
+            "verbform": "2. Person Singular, Passé composé von avoir.",
+            "userverb": "userinput"
         }
         res = client.post("/validateverb", data=dummydata)
         assert res.status_code == 200
