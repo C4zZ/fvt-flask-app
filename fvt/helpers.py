@@ -168,12 +168,9 @@ def checkVerb(toCheck, check):
 
     # to parse a boolean to javascript
     # checking if the verb typed by the user matches the verbsolution
-    # 0 is false
-    # 1 is true
-    bitboolean = 0
 
-    if toCheck == verbsolution:
-        bitboolean = 1
+    isVerbCorrect = True if toCheck == verbsolution else False
+        
 
     # tracks the successful and failed userinputs of a given verb
     # column names for table trackUserSuccessFailure
@@ -184,19 +181,19 @@ def checkVerb(toCheck, check):
     # state - bitboolean
     # date - date
     
-    if bitboolean == 0:
+    if isVerbCorrect == True:
         db.execute("INSERT INTO trackUserSuccessFailure \
         (verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, %s, %s, %s)", \
-        (verbform, verbsolution, erroneousUserInput, bitboolean, date))
+        (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
     
     else :
         db.execute("INSERT INTO trackUserSuccessFailure \
         (verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, '', %s, %s)", \
-        (verbform, verbsolution, bitboolean, date))
+        (verbform, verbsolution, isVerbCorrect, date))
     
     conn.commit()
-    
-    return bitboolean
+
+    return str(isVerbCorrect)
 
 
 # seperate helper functions

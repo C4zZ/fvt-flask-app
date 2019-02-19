@@ -43,7 +43,8 @@ class TestApp:
             "userverb": "tu as eu"
         }
         res = client.post("/validateverb", data=dummydata)
-        assert res.data == "lol"
+        
+        assert res.get_data(as_text=True) == "True"
     
     def test_validateverb_POST_userinput_fail(self, client):
         dummydata = {
@@ -51,5 +52,5 @@ class TestApp:
             "userverb": "userinput"
         }
         res = client.post("/validateverb", data=dummydata)
-        assert res.status_code == 200
+        assert res.get_data(as_text=True) == "False"
     

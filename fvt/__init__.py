@@ -59,9 +59,7 @@ def create_app(config_filename=None):
         answer = request.form.get("verbform")
         userinput = request.form.get("userverb")
         isverb = checkVerb(userinput, answer)
-        return str(isverb)
-
-        return request.form.get("verbform")
+        return isverb
 
     return app
 
