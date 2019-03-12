@@ -3,7 +3,7 @@ import urllib.request
 
 # Turns ImmutableMultiDict to dict
 def IMDtodict(imd):
-    newdict = ImmutableMultiDict(request.form)
+    #newdict = ImmutableMultiDict(request.form)
     newdict = imd.to_dict(flat=False)
     return newdict
 
