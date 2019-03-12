@@ -1,5 +1,5 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
-from . db import conn, db
+from . database import conn, db
 from . collect import URLrequesttoString
 from . helpers import newRandomVerb, checkVerb
 

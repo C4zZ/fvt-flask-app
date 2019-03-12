@@ -1,6 +1,6 @@
 import random
 import datetime
-from . db import conn, db
+from . database import conn, db
 import pymysql as MySQLdb
 from . grammar import *
 

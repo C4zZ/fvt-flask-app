@@ -8,3 +8,5 @@ fvt/error_fvt.log
 fvt/db.py
 fvt/__pycache__
 fvt/.flaskenv
+.idea/workspace.xml
+

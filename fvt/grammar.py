@@ -1,5 +1,5 @@
 import pymysql as MySQLdb
-from .db import conn, db
+from .database import conn, db
 
 # turn SELECT output to a dictionary with the respective column names
 # of a table as key values
