@@ -9,4 +9,12 @@ fvt/db.py
 fvt/__pycache__
 fvt/.flaskenv
 .idea/workspace.xml
+.vscode
+.idea
+.pytest_cache
 
+.vscode/settings.json
+
+fvt/tests/__pycache__/
+fvt/tests/__pycache__/test_app.cpython-35-PYTEST.pyc
+fvt/tests/__pycache__/test_verb.cpython-35-PYTEST.pyc
