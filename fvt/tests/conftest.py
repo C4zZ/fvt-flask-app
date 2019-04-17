@@ -9,7 +9,8 @@ def app():
     app.debug = True
     app.testing = True
     return app
-
+'''
 @pytest.fixture
 def testClient(app):
-    return app.test_client()
+    return app.testClient
+'''

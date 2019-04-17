@@ -1,4 +1,4 @@
-#class TestConfig:
+class TestConfig:
 
-    #def test_testConfigIsEnabled(self):
-        return
+    def test_testConfigIsEnabled(self, app):
+        assert app.debug == True

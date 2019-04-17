@@ -3,3 +3,4 @@ venv/
 .vscode
 __pycache__/
 .pytest_cache/
+fvt/tests/__pycache__/conftest.cpython-35-PYTEST.pyc
