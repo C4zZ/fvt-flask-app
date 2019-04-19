@@ -6,7 +6,7 @@ class TestVerb:
     
     def test_verb_success(self):
         assert Verb(3, "Plural", Tenses.PRÉSENT.value, "être").constructVerb() == "sont"
-        
+     
     
 
                     

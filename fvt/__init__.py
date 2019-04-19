@@ -17,8 +17,12 @@ import random
 def create_app(config_filename=None):
     """ create_app instantiates a Flask object for the fvt project with all of its endpoints
     """
-    app = Flask(__name__, instance_relative_config=True)
-    #app.config.from_pyfile(config_filename)
+    app = Flask(__name__, instance_relative_config=False)
+
+    if config_filename:
+        CONFIG_FILE_PATH = "configs\\" + config_filename
+        app.config.from_pyfile(CONFIG_FILE_PATH)
+
     #initialize_extensions(app)
     #register_blueprints(app)
 

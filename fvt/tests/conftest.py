@@ -4,13 +4,22 @@ from .. import create_app
 """ conftest.py defines pytest fixtures which are useful for testing this application. 
 """
 @pytest.fixture
-def app():
+def fixture_default_client():
     app = create_app()
-    app.debug = True
-    app.testing = True
     return app
-'''
+
 @pytest.fixture
-def testClient(app):
-    return app.testClient
-'''
+def test_client():
+    app = create_app()
+
+    # saving test_client() inside app so that unit tests are possible 
+    # e.g. that request methods like get() and post() are available
+    app = app.test_client()
+
+    return app
+
+@pytest.fixture
+def config_testing_client():
+    app = create_app("test.cfg")
+    return app
+
