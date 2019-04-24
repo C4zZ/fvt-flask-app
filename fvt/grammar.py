@@ -1,3 +1,4 @@
+# coding=utf-8
 import pymysql as MySQLdb
 from .database import conn, db
 
@@ -5,12 +6,14 @@ from .database import conn, db
 # of a table as key values
 db = conn.cursor(MySQLdb.cursors.DictCursor)
 
+
 # présent
 def buildprésent(inf, pz):
     db.execute("SELECT * FROM présent WHERE infinitiv = %s", (inf,))
     verbrow = db.fetchone()
     verbsolution = verbrow[pz]
     return verbsolution
+
 
 # passé-composé 
 def buildpc(inf, pz):

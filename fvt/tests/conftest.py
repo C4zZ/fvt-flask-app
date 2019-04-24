@@ -8,6 +8,7 @@ def fixture_default_client():
     app = create_app()
     return app
 
+
 @pytest.fixture
 def test_client():
     app = create_app()
@@ -17,6 +18,7 @@ def test_client():
     app = app.test_client()
 
     return app
+
 
 @pytest.fixture
 def config_testing_client():
