@@ -23,6 +23,4 @@ class Verb:
 
         """
 
-        
-
         return "" + str(self.person) + " " + self.number + " " + self.tense + " " + self.baseVerb
