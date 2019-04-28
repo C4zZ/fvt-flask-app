@@ -1,9 +1,7 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
-from . database import conn, db
-from . collect import URLrequesttoString
-from . helpers import newRandomVerb, checkVerb
-
-import random
+from .database import conn, db
+from .collect import URLrequesttoString
+from .helpers import newRandomVerb, checkVerb
 
 # fvt database
 #
@@ -14,22 +12,22 @@ import random
     the create_app() method
 """
 
+
 def create_app(config_filename=None):
     """ create_app instantiates a Flask object for the fvt project with all of its endpoints
     """
     app = Flask(__name__, instance_relative_config=False)
 
     if config_filename:
-        CONFIG_FILE_PATH = "configs\\" + config_filename
-        app.config.from_pyfile(CONFIG_FILE_PATH)
+        config_file_path = "configs\\" + config_filename
+        app.config.from_pyfile(config_file_path)
 
-    #initialize_extensions(app)
-    #register_blueprints(app)
+    # initialize_extensions(app)
+    # register_blueprints(app)
 
     @app.route("/")
     def index():
-        return render_template("index.html", verb = "")
-
+        return render_template("index.html", verb="")
 
     @app.route("/collect", methods=["POST", "GET"])
     def collect():
@@ -45,9 +43,7 @@ def create_app(config_filename=None):
                 return "NO URL WAS GIVEN TO CLIENT!"
         
             return str(requestdict)
-        
 
-        
         else:
             return render_template("collect.html")
 
@@ -58,14 +54,14 @@ def create_app(config_filename=None):
 
     @app.route("/validateverb", methods=["POST"])
     def validateverb():
-        
-        
+
         answer = request.form.get("verbform")
         userinput = request.form.get("userverb")
         isverb = checkVerb(userinput, answer)
         return isverb
 
     return app
+
 
 if __name__ == "__main__":
     app = create_app()
