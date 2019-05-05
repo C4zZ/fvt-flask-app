@@ -1,11 +1,11 @@
 import pytest
 from flask import url_for, request
-from ..helpers import newRandomVerb
+from ..helpers import getNewVerb
 
 
 class TestApp:
     
-    def test_index_200_response(self, test_client): 
+    def test_index_GET_200_response(self, test_client):
         res = test_client.get("/")
         assert res.status_code == 200
     
@@ -27,11 +27,11 @@ class TestApp:
     def test_newverb_GET_nonempty_String(self, test_client):
         res = test_client.open("/newverb")
         assert res.data.decode("utf-8") != ""
-        assert len(res.data) > 0 
+        assert len(res.data) > 0
 
     def test_validateverb_POST_200_response(self, test_client):
         dummydata = {
-            "verbform": newRandomVerb(),
+            "verbform": getNewVerb(),
             "userverb": "userinput"
         }
         res = test_client.post("/validateverb", data=dummydata)

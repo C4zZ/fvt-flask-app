@@ -1,7 +1,7 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from .database import conn, db
 from .collect import URLrequesttoString
-from .helpers import newRandomVerb, checkVerb
+from .helpers import getNewVerb, checkVerb
 
 # fvt database
 #
@@ -49,7 +49,7 @@ def create_app(config_filename=None):
 
     @app.route("/newverb", methods=["GET"])
     def newverb():
-        newverb = newRandomVerb()
+        newverb = getNewVerb()
         return newverb
 
     @app.route("/validateverb", methods=["POST"])

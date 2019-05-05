@@ -26,7 +26,7 @@ zeit = [
         #"Impérativ"
     ]
 
-def newRandomVerb():
+def getNewVerb():
 
     person = [1, 2, 3]
 
