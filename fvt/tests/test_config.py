@@ -9,4 +9,3 @@ class TestConfig:
     
     def test_testConfigTestingIsEnabled(self, config_testing_client):
         assert config_testing_client.testing == True
-    

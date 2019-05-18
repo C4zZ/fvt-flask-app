@@ -1,7 +1,7 @@
 import random
 import datetime
-from . database import conn, db
-import pymysql as MySQLdb
+
+# with this import all tests are green because the db instance inside grammar has a dictCursor
 from . grammar import *
 
 '''
@@ -34,7 +34,7 @@ def getNewVerb():
     
     # the global variable zeit is not right in the scope of the function
     # newRandomVerb(). it only is a random letter. In the scope of the 
-    # function checkVerb() it is a lits of french tenses.
+    # function checkVerb() it is a list of french tenses.
     #zeit = global zeit
     # for the Impérativ only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)
 

@@ -21,11 +21,11 @@ class TestApp:
     '''
     
     def test_newverb_GET_200_response(self, test_client):
-        res = test_client.open("/newverb")
+        res = test_client.get("/newverb")
         assert res.status_code == 200
     
     def test_newverb_GET_nonempty_String(self, test_client):
-        res = test_client.open("/newverb")
+        res = test_client.get("/newverb")
         assert res.data.decode("utf-8") != ""
         assert len(res.data) > 0
 
