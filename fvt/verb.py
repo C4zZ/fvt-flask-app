@@ -1,5 +1,6 @@
 from random import randint
-
+from .database import db
+from .helpers import listOfDictsToList
 
 class Verb:
     number = ["Singular", "Plural"]
@@ -57,4 +58,17 @@ class Verb:
         return self.tense[randint(0, len(self.tense) - 1)]
 
     def generateRandomBaseVerb(self):
-        pass
+
+        linkedVerbsList = db\
+            .execute("SELECT infinitiv FROM présent")\
+            .fetchall()
+
+        # because of db = conn.cursor(MySQLdb.cursors.DictCursor)
+        # llist (above) is a list of dictionaries with one key-value pair.
+        # newRandomVerb only needs the values of each dict in this list-> llist
+        # needs to get transformed with listOfDictsToList to a list of verbs.
+        verbsList = listOfDictsToList(linkedVerbsList)
+
+        verb = verbsList[0, len(verbsList) - 1]
+
+        return verb
