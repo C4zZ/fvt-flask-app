@@ -1,4 +1,14 @@
+from random import randint
+
+
 class Verb:
+    number = ["Singular", "Plural"]
+    tense = [
+        "Präsens",
+        "Passé composé",
+        "Futur composé"
+        # "Impérativ"
+    ]
 
     def __init__(self, person=None, number=None, tense=None, baseVerb=None):
         """ __init__ creates a Verb instance.
@@ -8,6 +18,18 @@ class Verb:
             tense {string} -- tense denotes the place in time of the action (condition, state of being, etc.) represented by the verb.
             baseVerb {string} -- baseVerb refers to the actual infinitive form of the verb which should be represented by this instance
         """
+        if person is None:
+            person = self.generateRandomPerson()
+
+        if number is None:
+            number = self.generateRandomNumber()
+
+        if tense is None:
+            tense = self.generateRandomTense()
+
+        if baseVerb is None:
+            baseVerb = self.generateRandomBaseVerb()
+
 
         self.person = person
         self.number = number
@@ -24,3 +46,15 @@ class Verb:
         """
 
         return "" + str(self.person) + " " + self.number + " " + self.tense + " " + self.baseVerb
+
+    def generateRandomPerson(self):
+        return randint(1, 3)
+
+    def generateRandomNumber(self):
+        return self.number[randint(0, 1)]
+
+    def generateRandomTense(self):
+        return self.tense[randint(0, len(self.tense) - 1)]
+
+    def generateRandomBaseVerb(self):
+        pass
