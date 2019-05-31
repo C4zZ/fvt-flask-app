@@ -59,9 +59,9 @@ class Verb:
 
     def generateRandomBaseVerb(self):
 
-        linkedVerbsList = db\
-            .execute("SELECT infinitiv FROM présent")\
-            .fetchall()
+        db.execute("SELECT infinitiv FROM présent")\
+
+        linkedVerbsList = db.fetchall()
 
         # because of db = conn.cursor(MySQLdb.cursors.DictCursor)
         # linkedVerbsList (above) is a list of dictionaries with one key-value pair.
