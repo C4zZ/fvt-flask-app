@@ -64,11 +64,11 @@ class Verb:
             .fetchall()
 
         # because of db = conn.cursor(MySQLdb.cursors.DictCursor)
-        # llist (above) is a list of dictionaries with one key-value pair.
+        # linkedVerbsList (above) is a list of dictionaries with one key-value pair.
         # newRandomVerb only needs the values of each dict in this list-> llist
         # needs to get transformed with listOfDictsToList to a list of verbs.
         verbsList = listOfDictsToList(linkedVerbsList)
 
-        verb = verbsList[0, len(verbsList) - 1]
+        verb = verbsList[randint(0, len(verbsList) - 1)]
 
         return verb
