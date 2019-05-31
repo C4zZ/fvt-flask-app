@@ -2,7 +2,7 @@ import pytest
 from ..verb import Verb 
 from ..tenses import Tenses
 # commented out because can not implement this business logic yet. Need a reliable webserver like nginx first
-# Todo: implement db with goog db design
+# Todo: implement db with good db design
 '''
 
 class TestVerb:

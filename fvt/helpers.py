@@ -197,7 +197,6 @@ def checkVerb(toCheck, check):
 
 
 # seperate helper functions
-
 def getDictVal(dictionary):
     for key in dictionary:
         return dictionary[key] 
