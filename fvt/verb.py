@@ -1,14 +1,14 @@
 class Verb:
 
-    def __init__(self, person, number, tense, baseVerb):
+    def __init__(self, person=None, number=None, tense=None, baseVerb=None):
         """ __init__ creates a Verb instance.
-        
         Arguments:
             person {int} -- person refers to whether the subject is first person (“je” or “nous”), second person (“tu” or “vous”) or third person (“il”/“elle”/“on” or “ils”/“elles”).
             number {string} -- number refers to whether the subject of the verb is singular or plural.
             tense {string} -- tense denotes the place in time of the action (condition, state of being, etc.) represented by the verb.
             baseVerb {string} -- baseVerb refers to the actual infinitive form of the verb which should be represented by this instance
         """
+
         self.person = person
         self.number = number
         self.tense = tense
