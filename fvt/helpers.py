@@ -1,5 +1,6 @@
 import random
 import datetime
+from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
 from . grammar import *
@@ -28,54 +29,9 @@ zeit = [
 
 def getNewVerb():
 
-    person = [1, 2, 3]
+    verb = Verb()
 
-    zahl = ["Singular", "Plural"]
-    
-    # the global variable zeit is not right in the scope of the function
-    # newRandomVerb(). it only is a random letter. In the scope of the 
-    # function checkVerb() it is a list of french tenses.
-    #zeit = global zeit
-    # for the Impérativ only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)
-
-    zeit = [
-        #"Präsens",
-        "Passé composé",
-        #"Futur composé",
-        #"Impératif"
-    ]
-    
-    # choosing random person
-    randint = random.randint(0, 2)
-    person = str(person[randint])
-
-    # choosing random zahl
-    randint = random.randint(0, 1)
-    zahl = zahl[randint]
-
-    # choosing random zeit
-    zeitlen = len(zeit)-1
-    randint = random.randint(0, zeitlen)
-    zeit = zeit[randint]
-
-    # creating verblist
-    db.execute("SELECT infinitiv FROM présent")
-    llist = db.fetchall()
-
-    # because of db = conn.cursor(MySQLdb.cursors.DictCursor)
-    # llist (above) is a list of dictionaries with one key-value pair.
-    # newRandomVerb only needs the values of each dict in this list-> llist
-    # needs to get transformed with listOfDictsToList to a list of verbs.
-    verbs = listOfDictsToList(llist)
-
-    # choosing random verb
-    verbslen = len(verbs)-1
-    randint = random.randint(0, verbslen)
-    verb = verbs[randint]
-
-    res = person + ". Person " + zahl + ", " + zeit + " von " + verb + "." 
-
-    return res
+    return str(verb.person) + ". Person " + verb.number + ", " + verb.tense + " von " + verb.baseVerb + "."
 
 
 def checkVerb(toCheck, check):

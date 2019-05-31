@@ -1,6 +1,5 @@
 from random import randint
 from .database import db
-from .helpers import listOfDictsToList
 
 class Verb:
     number = ["Singular", "Plural"]
@@ -39,8 +38,8 @@ class Verb:
         self.tense = tense
         self.baseVerb = baseVerb
     
-    def constructVerb(self):
-        """ constructVerb() creates a String instance of the verb based on the current instances
+    def constructVerbStringform(self):
+        """ constructVerbStringform() creates a String instance of the verb based on the current instances
             person, number, tense and baseVerb.
 
             example:    a Verb instance instantiated as follows Verb(3, "Plural", Tenses.PRÉSENT.value, "être")
