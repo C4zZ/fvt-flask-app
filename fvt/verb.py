@@ -59,15 +59,12 @@ class Verb:
 
     def generateRandomBaseVerb(self):
 
-        db.execute("SELECT infinitiv FROM présent")\
-
+        db.execute("SELECT infinitiv FROM présent")
         linkedVerbsList = db.fetchall()
 
-        # because of db = conn.cursor(MySQLdb.cursors.DictCursor)
-        # linkedVerbsList (above) is a list of dictionaries with one key-value pair.
-        # newRandomVerb only needs the values of each dict in this list-> llist
-        # needs to get transformed with listOfDictsToList to a list of verbs.
-        verbsList = listOfDictsToList(linkedVerbsList)
+        verbsList = []
+        for singleElementTuple in linkedVerbsList:
+            verbsList.append(singleElementTuple[0])
 
         verb = verbsList[randint(0, len(verbsList) - 1)]
 

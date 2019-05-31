@@ -11,6 +11,3 @@ class TestVerb:
         assert Verb(3, "Plural", Tenses.PRÉSENT.value, "être").constructVerb() == "sont"
 
     '''
-
-    def test_generateRandomBaseVerb(self):
-        assert Verb().generateRandomBaseVerb() == "test"
