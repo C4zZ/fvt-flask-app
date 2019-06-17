@@ -47,7 +47,10 @@ class Verb:
 
         """
 
-        return "" + str(self.person) + " " + self.number + " " + self.tense + " " + self.baseVerb
+        # database should be accessed here...
+        result = "" + str(self.person) + " " + self.number + " " + self.tense + " " + self.baseVerb
+
+        return result
 
     def generateRandomPerson(self):
         return randint(1, 3)

@@ -11,3 +11,10 @@ class TestVerb:
         assert Verb(3, "Plural", Tenses.PRÉSENT.value, "être").constructVerbStringform() == "sont"
 
     '''
+
+    def test_generate_random_verb(self):
+        verb = Verb()
+
+        result = verb.baseVerb
+
+        assert result != ""
