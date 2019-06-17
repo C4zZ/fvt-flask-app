@@ -15,6 +15,9 @@ class TestVerb:
     def test_generate_random_verb(self):
         verb = Verb()
 
-        result = verb.baseVerb
+        x = 1337
 
-        assert result != ""
+        assert verb.tense in verb.defaultTenses and \
+               verb.baseVerb != "" and \
+               verb.number in verb.defaultNumber and \
+               verb.person in [1, 2, 3]

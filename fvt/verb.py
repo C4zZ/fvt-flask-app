@@ -2,8 +2,8 @@ from random import randint
 from .database import db
 
 class Verb:
-    number = ["Singular", "Plural"]
-    tense = [
+    defaultNumber = ["Singular", "Plural"]
+    defaultTenses = [
         "Präsens",
         "Passé composé",
         "Futur composé"
@@ -32,7 +32,6 @@ class Verb:
         if baseVerb is None:
             baseVerb = self.generateRandomBaseVerb()
 
-
         self.person = person
         self.number = number
         self.tense = tense
@@ -56,10 +55,10 @@ class Verb:
         return randint(1, 3)
 
     def generateRandomNumber(self):
-        return self.number[randint(0, 1)]
+        return self.defaultNumber[randint(0, 1)]
 
     def generateRandomTense(self):
-        return self.tense[randint(0, len(self.tense) - 1)]
+        return self.defaultTenses[randint(0, len(self.defaultTenses) - 1)]
 
     def generateRandomBaseVerb(self):
 
