@@ -1,24 +1,9 @@
-import random
 import datetime
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
 from . grammar import *
 
-'''
-    zeit = [
-        "Präsens",
-        "Passé composé",
-        "Passé simple",
-        "Imparfait",
-        "Plus-que-parfait",
-        "Futur composé",
-        "Futur simple",
-        "Futur antérieur"
-    ]
-    '''
-# change here when you'll implement more tenses
-# for the Impérativ only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)
 
 zeit = [
         "Präsens",
@@ -34,14 +19,15 @@ def getNewVerb():
     return str(verb.person) + ". Person " + verb.number + ", " + verb.tense + " von " + verb.baseVerb + "."
 
 
-def checkVerb(toCheck, check):
+def checkVerb(userVerb, correctVerbfom):
+
     # getting current time in the form of yyyy-mm-dd
     date = datetime.datetime.now().strftime("%d" + "-" + "%m" + "-" + "%Y")
     #return date
     # saving the whole verbform for tracking inside the table trackUserSuccessFailure
-    verbform = check
+    verbform = correctVerbfom
     # saving the whole verb typed in by the user for tracking inside the table trackUserSuccessFailure
-    erroneousUserInput = toCheck
+    erroneousUserInput = userVerb
 
     # removing the personal pronouns from the userinput if they exist at the beginning
     personalpronomen = [
@@ -58,28 +44,28 @@ def checkVerb(toCheck, check):
 
     global zeit
     
-    if toCheck.startswith("j'") or toCheck.startswith("J'"):
-        toCheck = toCheck.split("'", 1)[1]
+    if userVerb.startswith("j'") or userVerb.startswith("J'"):
+        userVerb = userVerb.split("'", 1)[1]
 
     for i in range(len(personalpronomen)):
         p = personalpronomen[i]
         P = personalpronomen[i].capitalize()
        
-        if toCheck.startswith(p) or toCheck.startswith(P):
-            if toCheck[len(p)] == " ":
-                toCheck = toCheck.split(" ", 1)[1]
+        if userVerb.startswith(p) or userVerb.startswith(P):
+            if userVerb[len(p)] == " ":
+                userVerb = userVerb.split(" ", 1)[1]
 
     # getting the important elements from the check String (person, zahl, zeit, verb)
 
     # person (1/2/3)
-    person = check.split(". Person ", 1)[0]
+    person = correctVerbfom.split(". Person ", 1)[0]
     remove = str(person) + ". Person "
-    check = check.replace(remove, "", 1)
+    correctVerbfom = correctVerbfom.replace(remove, "", 1)
 
     # zahl (Singular/Plural)
-    zahl = check.split(", ", 1)[0]
+    zahl = correctVerbfom.split(", ", 1)[0]
     remove = zahl + ", "
-    check = check.replace(remove, "", 1)
+    correctVerbfom = correctVerbfom.replace(remove, "", 1)
 
     if zahl == "Singular":
         zahl = "Sg"
@@ -90,7 +76,7 @@ def checkVerb(toCheck, check):
     perszahl = person + zahl
 
     # zeit and verb
-    zeit, infinitiv = check.split(" von ", 1)[0], check.split(" von ", 1)[1]
+    zeit, infinitiv = correctVerbfom.split(" von ", 1)[0], correctVerbfom.split(" von ", 1)[1]
     infinitiv = infinitiv.replace(".", "")
 
     # checking a verb in Präsens (dbtablename for präsens 
@@ -125,7 +111,7 @@ def checkVerb(toCheck, check):
     # to parse a boolean to javascript
     # checking if the verb typed by the user matches the verbsolution
 
-    isVerbCorrect = True if toCheck == verbsolution else False
+    isVerbCorrect = True if userVerb == verbsolution else False
         
 
     # tracks the successful and failed userinputs of a given verb

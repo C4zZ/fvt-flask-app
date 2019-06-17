@@ -3,11 +3,18 @@ from .database import db
 
 class Verb:
     defaultNumber = ["Singular", "Plural"]
+
+    # for the Impérativ only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)# for the Impérativ
+    # only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)
     defaultTenses = [
         "Präsens",
         "Passé composé",
-        "Futur composé"
-        # "Impérativ"
+        # "Passé simple",
+        # "Imparfait",
+        # "Plus-que-parfait",
+        "Futur composé",
+        # "Futur simple",
+        # "Futur antérieur"
     ]
 
     def __init__(self, person=None, number=None, tense=None, baseVerb=None):
