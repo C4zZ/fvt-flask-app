@@ -68,8 +68,8 @@
 [Sat Oct 06 15:11:11.935978 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
 [Sat Oct 06 15:11:11.935984 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]     return self.view_functions[rule.endpoint](**req.view_args)
 [Sat Oct 06 15:11:11.935995 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 49, in validateverb
-[Sat Oct 06 15:11:11.936015 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]     isverb = checkVerb(userinput, answer)
-[Sat Oct 06 15:11:11.936027 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 193, in checkVerb
+[Sat Oct 06 15:11:11.936015 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]     isverb = isUserInputCorrect(userinput, answer)
+[Sat Oct 06 15:11:11.936027 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 193, in isUserInputCorrect
 [Sat Oct 06 15:11:11.936033 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]     (verbform, verbsolution, erroneousUserInput, bitboolean, date))
 [Sat Oct 06 15:11:11.936043 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 168, in execute
 [Sat Oct 06 15:11:11.936048 2018] [wsgi:error] [pid 19119:tid 139689122580224] [remote 127.0.0.1:44830]     query = self.mogrify(query, args)
@@ -125,8 +125,8 @@
 [Sat Oct 06 15:29:18.545091 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
 [Sat Oct 06 15:29:18.545093 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]     return self.view_functions[rule.endpoint](**req.view_args)
 [Sat Oct 06 15:29:18.545098 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 49, in validateverb
-[Sat Oct 06 15:29:18.545100 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]     isverb = checkVerb(userinput, answer)
-[Sat Oct 06 15:29:18.545104 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 195, in checkVerb
+[Sat Oct 06 15:29:18.545100 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]     isverb = isUserInputCorrect(userinput, answer)
+[Sat Oct 06 15:29:18.545104 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 195, in isUserInputCorrect
 [Sat Oct 06 15:29:18.545119 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]     (verbform, verbsolution, erroneousUserInput, bitboolean, date))
 [Sat Oct 06 15:29:18.545123 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 168, in execute
 [Sat Oct 06 15:29:18.545126 2018] [wsgi:error] [pid 99395:tid 139688962676480] [remote 127.0.0.1:34511]     query = self.mogrify(query, args)
@@ -145,7 +145,7 @@
 [Sat Oct 06 15:32:19.236912 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]   File "/home/deev/webapps/fvt/htdocs/index.py", line 11, in <module>
 [Sat Oct 06 15:32:19.236915 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]     from fvt.fvt import app as application
 [Sat Oct 06 15:32:19.236921 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 4, in <module>
-[Sat Oct 06 15:32:19.236923 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]     from . helpers import newRandomVerb, checkVerb
+[Sat Oct 06 15:32:19.236923 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]     from . helpers import newRandomVerb, isUserInputCorrect
 [Sat Oct 06 15:32:19.236939 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 190
 [Sat Oct 06 15:32:19.236946 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]     db.commit()
 [Sat Oct 06 15:32:19.236961 2018] [wsgi:error] [pid 113553:tid 139689122580224] [remote 127.0.0.1:59292]     ^
@@ -176,8 +176,8 @@
 [Sat Oct 06 15:33:06.483781 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
 [Sat Oct 06 15:33:06.483784 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]     return self.view_functions[rule.endpoint](**req.view_args)
 [Sat Oct 06 15:33:06.483789 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 49, in validateverb
-[Sat Oct 06 15:33:06.483791 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]     isverb = checkVerb(userinput, answer)
-[Sat Oct 06 15:33:06.483795 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 190, in checkVerb
+[Sat Oct 06 15:33:06.483791 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]     isverb = isUserInputCorrect(userinput, answer)
+[Sat Oct 06 15:33:06.483795 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 190, in isUserInputCorrect
 [Sat Oct 06 15:33:06.483798 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390]     db.commit()
 [Sat Oct 06 15:33:06.483816 2018] [wsgi:error] [pid 116001:tid 139689122580224] [remote 127.0.0.1:37390] AttributeError: 'Cursor' object has no attribute 'commit'
 [Sat Oct 06 15:33:43.089445 2018] [mpm_worker:notice] [pid 19450:tid 139689308747648] AH00298: SIGHUP received.  Attempting to restart
@@ -206,8 +206,8 @@
 [Sat Oct 06 15:33:54.046117 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
 [Sat Oct 06 15:33:54.046120 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]     return self.view_functions[rule.endpoint](**req.view_args)
 [Sat Oct 06 15:33:54.046126 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 49, in validateverb
-[Sat Oct 06 15:33:54.046129 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]     isverb = checkVerb(userinput, answer)
-[Sat Oct 06 15:33:54.046143 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 190, in checkVerb
+[Sat Oct 06 15:33:54.046129 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]     isverb = isUserInputCorrect(userinput, answer)
+[Sat Oct 06 15:33:54.046143 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 190, in isUserInputCorrect
 [Sat Oct 06 15:33:54.046147 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708]     db.conn.commit()
 [Sat Oct 06 15:33:54.046169 2018] [wsgi:error] [pid 119008:tid 139689122580224] [remote 127.0.0.1:43708] AttributeError: 'Cursor' object has no attribute 'conn'
 [Sat Oct 06 15:34:06.333465 2018] [mpm_worker:notice] [pid 19450:tid 139689308747648] AH00298: SIGHUP received.  Attempting to restart
@@ -242,8 +242,8 @@
 [Sat Oct 06 15:37:09.911248 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
 [Sat Oct 06 15:37:09.911250 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]     return self.view_functions[rule.endpoint](**req.view_args)
 [Sat Oct 06 15:37:09.911254 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 49, in validateverb
-[Sat Oct 06 15:37:09.911257 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]     isverb = checkVerb(userinput, answer)
-[Sat Oct 06 15:37:09.911260 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 196, in checkVerb
+[Sat Oct 06 15:37:09.911257 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]     isverb = isUserInputCorrect(userinput, answer)
+[Sat Oct 06 15:37:09.911260 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 196, in isUserInputCorrect
 [Sat Oct 06 15:37:09.911262 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]     (verbform, verbsolution, erroneousUserInput, bitboolean, date))
 [Sat Oct 06 15:37:09.911266 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 168, in execute
 [Sat Oct 06 15:37:09.911269 2018] [wsgi:error] [pid 128935:tid 139689122580224] [remote 127.0.0.1:41198]     query = self.mogrify(query, args)
@@ -259,7 +259,7 @@
 [Sat Oct 06 15:41:42.121964 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]   File "/home/deev/webapps/fvt/htdocs/index.py", line 11, in <module>
 [Sat Oct 06 15:41:42.121967 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]     from fvt.fvt import app as application
 [Sat Oct 06 15:41:42.121973 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 4, in <module>
-[Sat Oct 06 15:41:42.121975 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]     from . helpers import newRandomVerb, checkVerb
+[Sat Oct 06 15:41:42.121975 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]     from . helpers import newRandomVerb, isUserInputCorrect
 [Sat Oct 06 15:41:42.121990 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 190
 [Sat Oct 06 15:41:42.121998 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]     conn.commit()
 [Sat Oct 06 15:41:42.122013 2018] [wsgi:error] [pid 152602:tid 139689122580224] [remote 127.0.0.1:50220]     ^
@@ -296,7 +296,7 @@
 [Sat Oct 06 15:48:35.823600 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]   File "/home/deev/webapps/fvt/htdocs/index.py", line 11, in <module>
 [Sat Oct 06 15:48:35.823606 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]     from fvt.fvt import app as application
 [Sat Oct 06 15:48:35.823614 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 4, in <module>
-[Sat Oct 06 15:48:35.823619 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]     from . helpers import newRandomVerb, checkVerb
+[Sat Oct 06 15:48:35.823619 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]     from . helpers import newRandomVerb, isUserInputCorrect
 [Sat Oct 06 15:48:35.823641 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 199
 [Sat Oct 06 15:48:35.823652 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]     else :
 [Sat Oct 06 15:48:35.823683 2018] [wsgi:error] [pid 178873:tid 139689122580224] [remote 127.0.0.1:54214]        ^
@@ -327,8 +327,8 @@
 [Sat Oct 06 15:54:35.341248 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
 [Sat Oct 06 15:54:35.341250 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]     return self.view_functions[rule.endpoint](**req.view_args)
 [Sat Oct 06 15:54:35.341255 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 49, in validateverb
-[Sat Oct 06 15:54:35.341257 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]     isverb = checkVerb(userinput, answer)
-[Sat Oct 06 15:54:35.341261 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 202, in checkVerb
+[Sat Oct 06 15:54:35.341257 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]     isverb = isUserInputCorrect(userinput, answer)
+[Sat Oct 06 15:54:35.341261 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 202, in isUserInputCorrect
 [Sat Oct 06 15:54:35.341263 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]     (verbform, verbsolution, erroneousUserInput, bitboolean, date))
 [Sat Oct 06 15:54:35.341267 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 168, in execute
 [Sat Oct 06 15:54:35.341269 2018] [wsgi:error] [pid 188493:tid 139689122580224] [remote 127.0.0.1:48908]     query = self.mogrify(query, args)
@@ -361,8 +361,8 @@
 [Sat Oct 06 15:56:08.001672 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/flask/app.py", line 1799, in dispatch_request
 [Sat Oct 06 15:56:08.001675 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]     return self.view_functions[rule.endpoint](**req.view_args)
 [Sat Oct 06 15:56:08.001680 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]   File "/home/deev/webapps/fvt/htdocs/fvt/fvt.py", line 49, in validateverb
-[Sat Oct 06 15:56:08.001682 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]     isverb = checkVerb(userinput, answer)
-[Sat Oct 06 15:56:08.001687 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 202, in checkVerb
+[Sat Oct 06 15:56:08.001682 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]     isverb = isUserInputCorrect(userinput, answer)
+[Sat Oct 06 15:56:08.001687 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]   File "/home/deev/webapps/fvt/htdocs/fvt/helpers.py", line 202, in isUserInputCorrect
 [Sat Oct 06 15:56:08.001689 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]     (verbform, verbsolution, erroneousUserInput, date))
 [Sat Oct 06 15:56:08.001693 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]   File "/home/deev/webapps/fvt/htdocs/fvt/venv/lib/python3.5/site-packages/pymysql/cursors.py", line 170, in execute
 [Sat Oct 06 15:56:08.001696 2018] [wsgi:error] [pid 12953:tid 139689122580224] [remote 127.0.0.1:33136]     result = self._query(query)

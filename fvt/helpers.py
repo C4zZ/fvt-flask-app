@@ -19,13 +19,20 @@ def getNewVerb():
     return str(verb.person) + ". Person " + verb.number + ", " + verb.tense + " von " + verb.baseVerb + "."
 
 
-def checkVerb(userVerb, correctVerbfom):
+def isUserInputCorrect(userVerb, correctVerbform):
+    """
+    isUserInputCorrect is responsible for checking the user input and tracking the performance of the user.
+    :param userVerb: the user input.
+    :param correctVerbform: the correct parts of the verb () in String form which needed to be inputted by the user and
+                            against which the user input is compared.
+    :return: True if user input is true; else returns false.
+    """
 
     # getting current time in the form of yyyy-mm-dd
     date = datetime.datetime.now().strftime("%d" + "-" + "%m" + "-" + "%Y")
     #return date
     # saving the whole verbform for tracking inside the table trackUserSuccessFailure
-    verbform = correctVerbfom
+    verbform = correctVerbform
     # saving the whole verb typed in by the user for tracking inside the table trackUserSuccessFailure
     erroneousUserInput = userVerb
 
@@ -42,7 +49,6 @@ def checkVerb(userVerb, correctVerbfom):
         "elles"
         ]
 
-    global zeit
     
     if userVerb.startswith("j'") or userVerb.startswith("J'"):
         userVerb = userVerb.split("'", 1)[1]
@@ -58,14 +64,14 @@ def checkVerb(userVerb, correctVerbfom):
     # getting the important elements from the check String (person, zahl, zeit, verb)
 
     # person (1/2/3)
-    person = correctVerbfom.split(". Person ", 1)[0]
+    person = correctVerbform.split(". Person ", 1)[0]
     remove = str(person) + ". Person "
-    correctVerbfom = correctVerbfom.replace(remove, "", 1)
+    correctVerbform = correctVerbform.replace(remove, "", 1)
 
     # zahl (Singular/Plural)
-    zahl = correctVerbfom.split(", ", 1)[0]
+    zahl = correctVerbform.split(", ", 1)[0]
     remove = zahl + ", "
-    correctVerbfom = correctVerbfom.replace(remove, "", 1)
+    correctVerbform = correctVerbform.replace(remove, "", 1)
 
     if zahl == "Singular":
         zahl = "Sg"
@@ -76,7 +82,7 @@ def checkVerb(userVerb, correctVerbfom):
     perszahl = person + zahl
 
     # zeit and verb
-    zeit, infinitiv = correctVerbfom.split(" von ", 1)[0], correctVerbfom.split(" von ", 1)[1]
+    zeit, infinitiv = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
     infinitiv = infinitiv.replace(".", "")
 
     # checking a verb in Präsens (dbtablename for präsens 
@@ -90,7 +96,7 @@ def checkVerb(userVerb, correctVerbfom):
     verbsolution = ""
 
     if zeit == "Präsens":
-        #try to import the whole grammar.py module so that you can write: grammar.buildprésent(infinitiv, perszahl)
+
         verbsolution = buildprésent(infinitiv, perszahl)
 
 

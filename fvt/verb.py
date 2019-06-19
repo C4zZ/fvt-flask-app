@@ -4,8 +4,8 @@ from .database import db
 class Verb:
     defaultNumber = ["Singular", "Plural"]
 
-    # for the Impérativ only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)# for the Impérativ
-    # only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in checkVerb function)
+    # for the Impérativ only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in isUserInputCorrect function)# for the Impérativ
+    # only 1Sg, 1Pl and 2Pl is needed as perszahl(variable in isUserInputCorrect function)
     defaultTenses = [
         "Präsens",
         "Passé composé",

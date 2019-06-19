@@ -1,7 +1,7 @@
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from .database import conn, db
 from .collect import URLrequesttoString
-from .helpers import getNewVerb, checkVerb
+from .helpers import getNewVerb, isUserInputCorrect
 
 # fvt database
 #
@@ -48,17 +48,15 @@ def create_app(config_filename=None):
             return render_template("collect.html")
 
     @app.route("/newverb", methods=["GET"])
-    def newverb():
-        newverb = getNewVerb()
-        return newverb
+    def generateNewVerb():
+        return getNewVerb()
 
     @app.route("/validateverb", methods=["POST"])
     def validateverb():
 
-        answer = request.form.get("verbform")
-        userinput = request.form.get("userverb")
-        isverb = checkVerb(userinput, answer)
-        return isverb
+        correctVerbform = request.form.get("verbform")
+        userInput = request.form.get("userverb")
+        return isUserInputCorrect(userInput, correctVerbform)
 
     return app
 
