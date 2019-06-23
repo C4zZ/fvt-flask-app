@@ -1,6 +1,6 @@
 # coding=utf-8
 import pymysql as MySQLdb
-from .database import conn, db
+from fvt.persistence.database import conn, db
 
 # turn SELECT output to a dictionary with the respective column names
 # of a table as key values

@@ -1,5 +1,5 @@
 from random import randint
-from .database import db
+from fvt.persistence.database import db
 
 class Verb:
     defaultNumber = ["Singular", "Plural"]

@@ -1,5 +1,5 @@
-from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
-from .database import conn, db
+from flask import Flask, request, render_template
+from fvt.persistence.database import FVT_DB
 from .collect import URLrequesttoString
 from .helpers import getNewVerb, isUserInputCorrect
 
@@ -19,7 +19,7 @@ def create_app(config_filename=None):
     app = Flask(__name__, instance_relative_config=False)
 
     # creating database
-    db =
+    db = FVT_DB()
 
     if config_filename:
         config_file_path = "configs\\" + config_filename
