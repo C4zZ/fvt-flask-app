@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, g
 from fvt.persistence.database import FVT_DB
 from .collect import URLrequesttoString
 from .helpers import getNewVerb, isUserInputCorrect
@@ -20,6 +20,9 @@ def create_app(config_filename=None):
 
     # creating database
     db = FVT_DB()
+
+    # saving
+    g["db"] = db
 
     if config_filename:
         config_file_path = "configs\\" + config_filename
