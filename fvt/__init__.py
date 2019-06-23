@@ -18,6 +18,9 @@ def create_app(config_filename=None):
     """
     app = Flask(__name__, instance_relative_config=False)
 
+    # creating database
+    db =
+
     if config_filename:
         config_file_path = "configs\\" + config_filename
         app.config.from_pyfile(config_file_path)
