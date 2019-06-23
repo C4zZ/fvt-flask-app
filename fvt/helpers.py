@@ -30,7 +30,7 @@ def isUserInputCorrect(userVerb, correctVerbform):
 
     # getting current time in the form of yyyy-mm-dd
     date = datetime.datetime.now().strftime("%d" + "-" + "%m" + "-" + "%Y")
-    #return date
+
     # saving the whole verbform for tracking inside the table trackUserSuccessFailure
     verbform = correctVerbform
     # saving the whole verb typed in by the user for tracking inside the table trackUserSuccessFailure
@@ -49,7 +49,6 @@ def isUserInputCorrect(userVerb, correctVerbform):
         "elles"
         ]
 
-    
     if userVerb.startswith("j'") or userVerb.startswith("J'"):
         userVerb = userVerb.split("'", 1)[1]
 
@@ -93,7 +92,6 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # of a table as key values
     #pymysql.cursors.DictCursor
     db = conn.cursor(MySQLdb.cursors.Cursor)
-    verbsolution = ""
 
     if zeit == "Präsens":
 
@@ -158,7 +156,6 @@ def iterateList(currentList):
     return newList
 
 def listOfDictsToList(dictsList):
-    newList = []
     newList = iterateList(dictsList)
     return newList
 

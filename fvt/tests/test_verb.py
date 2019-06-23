@@ -1,7 +1,5 @@
-import pytest
-from ..verb import Verb 
+from ..verb import Verb
 from ..tenses import Tenses
-# commented out because can not implement this business logic yet. Need a reliable webserver like nginx first
 # Todo: implement db with good db design
 
 
@@ -14,8 +12,6 @@ class TestVerb:
 
     def test_generate_random_verb(self):
         verb = Verb()
-
-        x = 1337
 
         assert verb.tense in verb.defaultTenses and \
                verb.baseVerb != "" and \
