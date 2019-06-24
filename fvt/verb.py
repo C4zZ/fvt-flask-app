@@ -1,5 +1,5 @@
 from random import randint
-from fvt.persistence.database import db
+from fvt.persistence.database import database
 
 class Verb:
     defaultNumber = ["Singular", "Plural"]
@@ -70,8 +70,8 @@ class Verb:
 
     def generateRandomBaseVerb(self):
 
-        db.execute("SELECT infinitiv FROM présent")
-        linkedVerbsList = db.fetchall()
+        database.execute("SELECT infinitiv FROM présent")
+        linkedVerbsList = database.fetchall()
 
         verbsList = []
         for singleElementTuple in linkedVerbsList:
