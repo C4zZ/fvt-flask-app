@@ -6,7 +6,7 @@ database = conn.cursor(PyMySQLdb.cursors.Cursor)
 
 class FVT_DB:
 
-    def __init__(self):
+    def __init__(self, config_filename="defaultDB.cfg"):
 
         self.host = "localhost"
         self.user = "schema"
