@@ -9,14 +9,13 @@ class DBConfigReader:
         self.configParser.read("configs\\" + config_filename)
 
     def getHost(self):
-        pass
-        # return self.configParser["HOST"]
+        return self.configParser["HOST"]
 
     def getUser(self):
-        pass
+        return self.configParser["USER"]
 
     def getPassword(self):
-        pass
+        return self.configParser["PASSWORD"]
 
     def getDB(self):
-        pass
+        return self.configParser["DB"]
