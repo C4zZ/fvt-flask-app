@@ -3,11 +3,12 @@ import pymysql as PyMySQLdb
 conn = PyMySQLdb.connect('localhost', 'schema', '3iRLJcC40xkyI8JIZTpv', 'fvt')
 database = conn.cursor(PyMySQLdb.cursors.Cursor)
 
-# TODO: Doc comments
 
 class FVT_DB:
-
+    """ database class for fvt-flask-app with custom methods vor accessing needed verbs and track the input of the user
+    """
     def __init__(self, config_filename="defaultDB.cfg"):
+
 
         self.host = "localhost"
         self.user = "schema"

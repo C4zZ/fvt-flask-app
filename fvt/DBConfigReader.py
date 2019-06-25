@@ -1,9 +1,9 @@
 import configparser
 
-# TODO: Doc comments
 
 class DBConfigReader:
-
+    """ reads host, user, password and db values from specified config file on database instantiation.
+    """
     def __init__(self, config_filename):
         self.configParser = configparser.ConfigParser()
         self.configParser.read("configs\\" + config_filename)
@@ -12,7 +12,7 @@ class DBConfigReader:
         pass
         # return self.configParser["HOST"]
 
-    def getUses(self):
+    def getUser(self):
         pass
 
     def getPassword(self):
