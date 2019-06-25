@@ -1,5 +1,7 @@
 import pymysql as PyMySQLdb
 
+from fvt.DBConfigReader import DBConfigReader
+
 conn = PyMySQLdb.connect('localhost', 'schema', '3iRLJcC40xkyI8JIZTpv', 'fvt')
 database = conn.cursor(PyMySQLdb.cursors.Cursor)
 
@@ -9,11 +11,12 @@ class FVT_DB:
     """
     def __init__(self, config_filename="defaultDB.cfg"):
 
+        configReader = DBConfigReader(config_filename)
 
-        self.host = "localhost"
-        self.user = "schema"
-        self.password = "3iRLJcC40xkyI8JIZTpv"
-        self.db = "fvt"
+        self.host = configReader.getHost()
+        self.user = configReader.getUser()
+        self.password = configReader.getPassword()
+        self.db = configReader.getDB()
 
         conn = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
         database = conn.cursor(PyMySQLdb.cursors.Cursor)
