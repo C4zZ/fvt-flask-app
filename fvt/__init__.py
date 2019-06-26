@@ -21,9 +21,6 @@ def create_app(config_filename=None):
     # creating database
     db = FVT_DB()
 
-    # saving
-    g["db"] = db
-
     if config_filename:
         config_file_path = "configs\\" + config_filename
         app.config.from_pyfile(config_file_path)
