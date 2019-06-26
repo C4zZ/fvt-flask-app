@@ -5,8 +5,9 @@ class DBConfigReader:
     """ reads host, user, password and db values from specified config file on database instantiation.
     """
     def __init__(self, config_filename):
+        with open("configs\\" + config_filename) as f:
         self.configParser = configparser.ConfigParser()
-        self.configParser.read("configs\\" + config_filename)
+        self.configParser.read_file(f)
 
     def getHost(self):
         return self.configParser["HOST"]
