@@ -4,3 +4,4 @@ venv/
 __pycache__/
 .pytest_cache/
 nginx-1.15.12/
+fvt/configs/defaultDB.cfg
