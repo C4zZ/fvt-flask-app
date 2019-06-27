@@ -12,19 +12,26 @@ class DBConfigReader:
         filedir = os.path.dirname(os.path.realpath(__file__)) + "\\configs\\"
 
         with open(filedir + config_filename, "r") as f:
-            self.configParser = configparser.ConfigParser()
-            self.configParser.read_file(f)
+            try:
+                self.configParser = configparser.ConfigParser()
+                self.configParser.read_file(f)
 
-            # TODO: checking if the config file has a 'Main' section here
+                # checking if "Main" section exists inside given config file
+                self.mainSection = self.configParser._sections["Main"]
+            except configparser.MissingSectionHeaderError:
+                print("\n\n\nDBConfigReader Error:\n The file {} does not have a \"Main\" section!".format(config_filename))
+                raise Exception("the file {} does not have a \"Main\" section!".format(config_filename))
+
+            #TODO: checking if Main section contains the keys "HOST". "USER", "PASSWORD" and "DB"
 
     def getHost(self):
-        return self.configParser["Main"]["HOST"]
+        return self.mainSection["HOST"]
 
     def getUser(self):
-        return self.configParser["Main"]["USER"]
+        return self.mainSection["USER"]
 
     def getPassword(self):
-        return self.configParser["Main"]["PASSWORD"]
+        return self.mainSection["PASSWORD"]
 
     def getDB(self):
-        return self.configParser["Main"]["DB"]
+        return self.mainSection["DB"]
