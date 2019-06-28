@@ -1,5 +1,6 @@
 import configparser
 import os
+import sys
 
 
 class DBConfigReader:
@@ -19,19 +20,27 @@ class DBConfigReader:
                 # checking if "Main" section exists inside given config file
                 self.mainSection = configParser._sections["Main"]
             except configparser.MissingSectionHeaderError:
-                print("\n\n\nDBConfigReader Error:\n The file {} does not have a \"Main\" section!".format(config_filename))
-                raise Exception("the file {} does not have a \"Main\" section!".format(config_filename))
+                print("\nThe file {} does not have a \"Main\" section!".format(config_filename))
+                sys.exit(1)
 
-            #TODO: checking if Main section contains the keys "HOST". "USER", "PASSWORD" and "DB"
+            try:
+                self.host = self.mainSection["host"]
+                self.user = self.mainSection["user"]
+                self.password = self.mainSection["password"]
+                self.db = self.mainSection["db"]
+            except KeyError:
+                print("\nPlease check whether or not you have the following keys inside the config file: HOST, USER, "
+                      "PASSWORD, DB")
+                sys.exit(1)
 
     def getHost(self):
-        return self.mainSection["host"]
+        return self.host
 
     def getUser(self):
-        return self.mainSection["user"]
+        return self.user
 
     def getPassword(self):
-        return self.mainSection["password"]
+        return self.password
 
     def getDB(self):
-        return self.mainSection["db"]
+        return self.db
