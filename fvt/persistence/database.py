@@ -13,21 +13,21 @@ class FVT_DB:
 
         configReader = DBConfigReader(config_filename)
 
-        self.host = "localhost"
-        self.user = "schema"
-        self.password = "3iRLJcC40xkyI8JIZTpv"
-        self.db = "fvt"
-
-        """
         self.host = configReader.getHost()
         self.user = configReader.getUser()
         self.password = configReader.getPassword()
         self.db = configReader.getDB()
-        """
+
         conn = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
         database = conn.cursor(PyMySQLdb.cursors.Cursor)
 
+    def trackUserPerformance(self, verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+        database.execute("INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
+                         "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
+        conn.commit()
+
+
     def close(self):
         return
-# TODO: database.connect() should get its parameters form a config file that doesnt get pushed to remote repo
+
 # TODO: write custom database methods for database access features inside the actual app
