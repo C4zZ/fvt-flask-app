@@ -7,9 +7,13 @@ database = conn.cursor(PyMySQLdb.cursors.Cursor)
 
 
 class FVT_DB:
-    """ database class for fvt-flask-app with custom methods vor accessing needed verbs and track the input of the user
+    """
+    database class for fvt-flask-app with custom methods vor accessing needed verbs and track the input of the user
     """
     def __init__(self, config_filename="defaultDB.cfg"):
+
+        self.connection = None
+        self.cursor = None
 
         configReader = DBConfigReader(config_filename)
 
@@ -18,16 +22,23 @@ class FVT_DB:
         self.password = configReader.getPassword()
         self.db = configReader.getDB()
 
-        conn = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
-        database = conn.cursor(PyMySQLdb.cursors.Cursor)
+        self.connect()
 
-    def trackUserPerformance(self, verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
-        database.execute("INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
-                         "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
-        conn.commit()
+    def connect(self):
+        """
+        open database connection.
+        """
+        self.connection = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
 
-
-    def close(self):
+    def disconnect(self):
         return
 
-# TODO: write custom database methods for database access features inside the actual app
+
+def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+    with FVT_DB().connection.cursor() as cursor:
+
+        cursor.execute("INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
+                     "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
+        conn.commit()
+
+    # TODO: write custom database methods for database access features inside the actual app
