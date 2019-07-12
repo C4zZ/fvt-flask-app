@@ -1,4 +1,6 @@
 import datetime
+
+from fvt.persistence.database import trackUserPerformance
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
@@ -127,16 +129,23 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # state - bitboolean
     # date - date
     
-    if isVerbCorrect == True:
+    if isVerbCorrect:
+        # trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
+
+
         db.execute("INSERT INTO trackUserSuccessFailure \
         (verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, %s, %s, %s)", \
         (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
-    
-    else :
+
+
+    else:
+        # trackUserPerformance(verbform, verbsolution, "", isVerbCorrect, date)
+
         db.execute("INSERT INTO trackUserSuccessFailure \
         (verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, '', %s, %s)", \
         (verbform, verbsolution, isVerbCorrect, date))
-    
+
+
     conn.commit()
 
     return str(isVerbCorrect)
