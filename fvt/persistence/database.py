@@ -6,7 +6,7 @@ conn = PyMySQLdb.connect('localhost', 'schema', '3iRLJcC40xkyI8JIZTpv', 'fvt')
 database = conn.cursor(PyMySQLdb.cursors.Cursor)
 
 
-class FVT_DB:
+class PyMySQLDBConnection:
     """
     database class for fvt-flask-app with custom methods vor accessing needed verbs and track the input of the user
     """
@@ -37,7 +37,7 @@ class FVT_DB:
 
 
 def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
-    with FVT_DB().connection.cursor() as cursor:
+    with PyMySQLDBConnection().connection.cursor() as cursor:
 
         cursor.execute("INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
                      "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
@@ -48,7 +48,7 @@ def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorre
 
 def getColumnNamesFromTable_trackusersuccessfailure():
 
-    with FVT_DB().connection.cursor() as cursor:
+    with PyMySQLDBConnection().connection.cursor() as cursor:
 
         cursor.execute("desc trackusersuccessfailure")
 

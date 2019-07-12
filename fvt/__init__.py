@@ -1,25 +1,19 @@
-from flask import Flask, request, render_template, g
-from fvt.persistence.database import FVT_DB
+from flask import Flask, request, render_template
+from fvt.persistence.database import PyMySQLDBConnection
 from .collect import URLrequesttoString
 from .helpers import getNewVerb, isUserInputCorrect
 
-# fvt database
-#
-# schema
-# 3iRLJcC40xkyI8JIZTpv
-
-""" __init__.py contains mostly application factory methods. For now mainly
-    the create_app() method
+""" 
+__init__.py contains mostly application factory methods. For now mainly
+the create_app() method
 """
 
 
 def create_app(config_filename=None):
-    """ create_app instantiates a Flask object for the fvt project with all of its endpoints
+    """
+    create_app instantiates a Flask object for the fvt project with all of its endpoints
     """
     app = Flask(__name__, instance_relative_config=False)
-
-    # creating database
-    db = FVT_DB()
 
     if config_filename:
         config_file_path = "configs\\" + config_filename

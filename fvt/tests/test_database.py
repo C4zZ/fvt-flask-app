@@ -1,15 +1,18 @@
 import pytest
-from fvt import FVT_DB
+from fvt import PyMySQLDBConnection
 from ..persistence.database import getColumnNamesFromTable_trackusersuccessfailure
 
 
 
 @pytest.fixture()
 def setupDB():
-    db = FVT_DB()
+    db = PyMySQLDBConnection()
     return db
 
 class TestDatabase:
+    """
+    TestDatabase is responsible for testing database methods reading or writing data form/to the database
+    """
 
     def test_getColumnNamesFromTable_trackusersuccessfailure(self):
         """
