@@ -22,16 +22,18 @@ class FVT_DB:
         self.password = configReader.getPassword()
         self.db = configReader.getDB()
 
-        self.connect()
+        self.connection = self.connect()
+        self.cursor = self.connection.cursor()
 
     def connect(self):
         """
         open database connection.
         """
-        self.connection = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
+        connection = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
+        return connection
 
     def disconnect(self):
-        return
+        pass
 
 
 def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
@@ -42,3 +44,14 @@ def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorre
         conn.commit()
 
     # TODO: write custom database methods for database access features inside the actual app
+
+
+def getColumnNamesFromTable_trackusersuccessfailure():
+
+    with FVT_DB().connection.cursor() as cursor:
+
+        cursor.execute("desc trackusersuccessfailure")
+
+        field_names = [column[0] for column in cursor.fetchall()]
+
+        return field_names
