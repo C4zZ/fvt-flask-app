@@ -38,6 +38,18 @@ class PyMySQLDBConnection(object):
 
             return field_names
 
+    def getTableNames(self):
+        with self as db:
+            cursor = db.connection.cursor()
+
+            cursor.execute(
+                "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = %s",
+                (db.db))
+
+            table_names_list = [element[0] for element in cursor.fetchall()]
+
+            return table_names_list
+
 
 def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
     with PyMySQLDBConnection().connection.cursor() as cursor:
@@ -45,14 +57,3 @@ def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorre
         cursor.execute("INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
                      "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
         conn.commit()
-
-def getTableNames():
-
-    with PyMySQLDBConnection() as db:
-        cursor = db.connection.cursor()
-
-        cursor.execute("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = %s", (db.db))
-
-        table_names_list = [element[0] for element in cursor.fetchall()]
-
-        return table_names_list

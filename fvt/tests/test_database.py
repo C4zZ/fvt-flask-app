@@ -1,7 +1,5 @@
 import pytest
 from fvt import PyMySQLDBConnection
-from ..persistence.database import getTableNames
-
 
 @pytest.fixture()
 def setupDB():
@@ -14,11 +12,11 @@ class TestDatabase:
     TestDatabase is responsible for testing database methods reading or writing data form/to the database
     """
 
-    def test_allTablesAvailableInDB(self):
+    def test_allTablesAvailableInDB(self, setupDB):
         """
         testing if all 3 tables (namely 'présent', 'testtbl' and 'trackusersuccessfailure') exist inside the database.
         """
-        table_names = getTableNames()
+        table_names = setupDB.getTableNames()
 
         assert len(table_names) == 3 and \
             "présent" in table_names and \
