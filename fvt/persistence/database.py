@@ -8,7 +8,7 @@ database = conn.cursor(PyMySQLdb.cursors.Cursor)
 
 class PyMySQLDBConnection(object):
     """
-    database class for fvt-flask-app with custom methods vor accessing needed verbs and track the input of the user
+    database class for fvt-flask-app with custom methods for accessing needed verbs and track the input of the user
     """
     def __init__(self, config_filename="defaultDB.cfg"):
 
