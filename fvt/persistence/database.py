@@ -13,7 +13,6 @@ class PyMySQLDBConnection(object):
     def __init__(self, config_filename="defaultDB.cfg"):
 
         self.connection = None
-        self.cursor = None
 
         configReader = DBConfigReader(config_filename)
 
@@ -24,12 +23,10 @@ class PyMySQLDBConnection(object):
 
     def __enter__(self):
         self.connection = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
-        self.cursor = self.connection.cursor()
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.connection.close()
-        self.cursor.close()
 
 
 def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
@@ -39,16 +36,26 @@ def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorre
                      "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
         conn.commit()
 
-    # TODO: write custom database methods for database access features inside the actual app
-
 
 def getColumnNamesFromTable_trackusersuccessfailure():
 
     with PyMySQLDBConnection() as db:
-        cursor = db.cursor
+        cursor = db.connection.cursor()
 
         cursor.execute("desc trackusersuccessfailure")
 
         field_names = [column[0] for column in cursor.fetchall()]
 
         return field_names
+
+
+def getTableNames():
+
+    with PyMySQLDBConnection() as db:
+        cursor = db.connection.cursor()
+
+        cursor.execute("SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_TYPE = 'BASE TABLE' AND TABLE_SCHEMA = %s", (db.db))
+
+        table_names_list = [element[0] for element in cursor.fetchall()]
+
+        return table_names_list
