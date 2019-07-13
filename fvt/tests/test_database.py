@@ -37,6 +37,3 @@ class TestDatabase:
             "erroneousUserInput" in column_names and \
             "state" in column_names and \
             "date" in column_names
-
-    def test_trackUserPerformance(self):
-        pass

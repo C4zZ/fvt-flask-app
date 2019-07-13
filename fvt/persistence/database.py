@@ -50,10 +50,12 @@ class PyMySQLDBConnection(object):
 
             return table_names_list
 
+    def trackUserPerformance(self, verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+        with self as db:
+            cursor = db.connection.cursor()
 
-def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
-    with PyMySQLDBConnection().connection.cursor() as cursor:
+            cursor.execute(
+                "INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
+                "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
 
-        cursor.execute("INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
-                     "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
-        conn.commit()
+            conn.commit()

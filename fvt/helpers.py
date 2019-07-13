@@ -1,6 +1,5 @@
 import datetime
 
-from fvt.persistence.database import trackUserPerformance
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
