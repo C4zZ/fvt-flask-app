@@ -1,6 +1,6 @@
 import pytest
 from fvt import PyMySQLDBConnection
-from ..persistence.database import getColumnNamesFromTable_trackusersuccessfailure, getTableNames
+from ..persistence.database import getTableNames
 
 
 @pytest.fixture()
@@ -25,12 +25,12 @@ class TestDatabase:
             "testtbl" in table_names and \
             "trackusersuccessfailure" in table_names
 
-    def test_getColumnNamesFromTable_trackusersuccessfailure(self):
+    def test_getColumnNamesFromTable_trackusersuccessfailure(self, setupDB):
         """
         testing if all 6 columns (namely 'error_id', 'verbform', 'verb', 'erroneousUserInput', 'state' and 'date') are
         present inside the table 'trackusersuccessfailure'
         """
-        column_names = getColumnNamesFromTable_trackusersuccessfailure()
+        column_names = setupDB.getColumnNamesFromTable_trackusersuccessfailure()
 
         assert len(column_names) == 6 and \
             "error_id" in column_names and \

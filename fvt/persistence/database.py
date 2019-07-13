@@ -28,6 +28,16 @@ class PyMySQLDBConnection(object):
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.connection.close()
 
+    def getColumnNamesFromTable_trackusersuccessfailure(self):
+        with self as db:
+            cursor = db.connection.cursor()
+
+            cursor.execute("desc trackusersuccessfailure")
+
+            field_names = [column[0] for column in cursor.fetchall()]
+
+            return field_names
+
 
 def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
     with PyMySQLDBConnection().connection.cursor() as cursor:
@@ -35,19 +45,6 @@ def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorre
         cursor.execute("INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
                      "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
         conn.commit()
-
-
-def getColumnNamesFromTable_trackusersuccessfailure():
-
-    with PyMySQLDBConnection() as db:
-        cursor = db.connection.cursor()
-
-        cursor.execute("desc trackusersuccessfailure")
-
-        field_names = [column[0] for column in cursor.fetchall()]
-
-        return field_names
-
 
 def getTableNames():
 
