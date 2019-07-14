@@ -28,9 +28,11 @@ class DBConfigReader:
                 self.user = self.mainSection["user"]
                 self.password = self.mainSection["password"]
                 self.db = self.mainSection["db"]
+                # saving boolean value inside testingDB
+                self.testingDB = self.mainSection["testing"] in ("True")
             except KeyError:
                 print("\nPlease check whether or not you have the following keys inside the config file: HOST, USER, "
-                      "PASSWORD, DB")
+                      "PASSWORD, DB, TESTING")
                 sys.exit(1)
 
     def getHost(self):
@@ -44,3 +46,6 @@ class DBConfigReader:
 
     def getDB(self):
         return self.db
+
+    def isTestingDB(self):
+        return self.testingDB

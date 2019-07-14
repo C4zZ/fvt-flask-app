@@ -21,3 +21,6 @@ class TestDBConfigReader:
 
     def test_DBConfigReader_read_test_db(self, TestConfigReader):
         assert TestConfigReader.getDB() == "database"
+
+    def test_DBConfigReader_read_test_testing(self, TestConfigReader):
+        assert TestConfigReader.isTestingDB() == True
