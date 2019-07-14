@@ -34,14 +34,16 @@ class PyMySQLDBConnection(object):
         """
         self.connection.close()
 
-    def getColumnNamesFromTable_trackusersuccessfailure(self):
+    def getColumnNamesFromTable(self, table_name):
 
         with self as db:
             cursor = db.connection.cursor()
-
-            cursor.execute("desc trackusersuccessfailure")
+            query = "desc %s" % table_name
+            cursor.execute(query)
 
             field_names = [column[0] for column in cursor.fetchall()]
+
+            d = 9
 
             return field_names
 

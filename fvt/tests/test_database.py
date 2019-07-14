@@ -28,7 +28,7 @@ class TestDatabase:
         testing if all 6 columns (namely 'error_id', 'verbform', 'verb', 'erroneousUserInput', 'state' and 'date') are
         present inside the table 'trackusersuccessfailure'
         """
-        column_names = setupDB.getColumnNamesFromTable_trackusersuccessfailure()
+        column_names = setupDB.getColumnNamesFromTable("trackusersuccessfailure")
 
         assert len(column_names) == 6 and \
             "error_id" in column_names and \
