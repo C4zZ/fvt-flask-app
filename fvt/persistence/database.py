@@ -1,4 +1,5 @@
 import pymysql as PyMySQLdb
+from flask import g
 
 from fvt.DBConfigReader import DBConfigReader
 
@@ -100,3 +101,17 @@ class PyMySQLDBConnection(object):
             # commit query only if this database instance is not for testing purposes
             if not self.testingDB:
                 self.connection.commit()
+
+def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+    pass
+
+def get_db():
+    if "db" not in g:
+        g.db = PyMySQLDBConnection()
+    return g.db
+
+def close_db():
+    db = g.pop("db", None)
+
+    if db is not None:
+        db.close()
