@@ -37,3 +37,10 @@ class TestDatabase:
             "erroneousUserInput" in column_names and \
             "state" in column_names and \
             "date" in column_names
+
+    def test_trackUserPerformance(self, setupDB):
+        setupDB.trackUserPerformance("2. Person Singular, Futur composé von avoir",
+                                     "as eu",
+                                     "tu as eu",
+                                     "1",
+                                     "11-07-2019")

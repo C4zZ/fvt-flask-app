@@ -83,7 +83,7 @@ class PyMySQLDBConnection(object):
         :param erroneousUserInput: the wrong input of the user if any
         :param isVerbCorrect: 0 for the information that the user input was correct and 1 for the information that the
         user input was incorrect.
-        :param date: the date when the user input happened in the format dd-mm-yyyy.
+        :param date: the date when the user input happened with the format dd-mm-yyyy.
         """
 
         with self as db:
@@ -93,4 +93,4 @@ class PyMySQLDBConnection(object):
                 "INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
                 "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
 
-            conn.commit()
+            self.connection.commit()
