@@ -21,6 +21,7 @@ class PyMySQLDBConnection(object):
         self.user = configReader.getUser()
         self.password = configReader.getPassword()
         self.db = configReader.getDB()
+        self.testingDB = configReader.isTestingDB()
 
     def __enter__(self):
         """
