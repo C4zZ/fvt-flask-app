@@ -97,4 +97,6 @@ class PyMySQLDBConnection(object):
                 "INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
                 "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
 
-            self.connection.commit()
+            # commit query only if this database instance is not for testing purposes
+            if not self.testingDB:
+                self.connection.commit()
