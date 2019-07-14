@@ -1,12 +1,3 @@
-import pytest
-from fvt import PyMySQLDBConnection
-
-@pytest.fixture()
-def setupDB():
-    db = PyMySQLDBConnection(config_filename="testingDB.cfg")
-    return db
-
-
 class TestDatabase:
     """
     TestDatabase is responsible for testing database methods reading or writing data form/to the database
@@ -37,11 +28,3 @@ class TestDatabase:
             "erroneousUserInput" in column_names and \
             "state" in column_names and \
             "date" in column_names
-
-    def test_trackUserPerformance(self, setupDB):
-        setupDB.trackUserPerformance("2. Person Singular, Futur composé von avoir",
-                                     "as eu",
-                                     "tu as eu",
-                                     "1",
-                                     "11-07-2019")
-        # now test data needs to be rollbacked somehow?

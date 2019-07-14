@@ -1,5 +1,5 @@
 import pytest
-from .. import create_app
+from fvt import create_app, PyMySQLDBConnection
 
 """ conftest.py defines pytest fixtures which are useful for testing this application. 
 """
@@ -25,3 +25,8 @@ def config_testing_client():
     app = create_app("test.cfg")
     return app
 
+
+@pytest.fixture()
+def setupDB():
+    db = PyMySQLDBConnection(config_filename="testingDB.cfg")
+    return db

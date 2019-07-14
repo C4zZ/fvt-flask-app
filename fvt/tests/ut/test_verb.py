@@ -1,5 +1,5 @@
-from ..verb import Verb
-from ..tenses import Tenses
+from fvt.verb import Verb
+from fvt.tenses import Tenses
 # Todo: implement db with good db design
 
 

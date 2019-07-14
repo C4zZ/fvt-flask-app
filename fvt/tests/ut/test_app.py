@@ -1,6 +1,6 @@
 import pytest
 from flask import url_for, request
-from ..helpers import getNewVerb
+from fvt.helpers import getNewVerb
 
 
 class TestApp:
