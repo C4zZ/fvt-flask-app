@@ -1,5 +1,6 @@
 import datetime
 
+from fvt.persistence.database import trackUserPerformance
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
@@ -144,13 +145,12 @@ def isUserInputCorrect(userVerb, correctVerbform):
         (verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, '', %s, %s)", \
         (verbform, verbsolution, isVerbCorrect, date))
 
-
     conn.commit()
 
     return str(isVerbCorrect)
 
 
-# seperate helper functions
+# separate helper functions
 def getDictVal(dictionary):
     for key in dictionary:
         return dictionary[key] 
@@ -163,8 +163,7 @@ def iterateList(currentList):
         newList.append(listElement)
     return newList
 
+
 def listOfDictsToList(dictsList):
     newList = iterateList(dictsList)
     return newList
-
-    

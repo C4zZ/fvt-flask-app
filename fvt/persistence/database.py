@@ -102,13 +102,16 @@ class PyMySQLDBConnection(object):
             if not self.testingDB:
                 self.connection.commit()
 
+
 def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
     pass
+
 
 def get_db():
     if "db" not in g:
         g.db = PyMySQLDBConnection()
     return g.db
+
 
 def close_db():
     db = g.pop("db", None)
