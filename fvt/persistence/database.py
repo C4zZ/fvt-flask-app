@@ -33,9 +33,11 @@ class PyMySQLDBConnection(object):
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         """
-        method for closing connection for current database instance after 'with' statement.
+        method for closing connection for current database instance after 'with' statement. The connection will only be
+        close if the database is not a testing database.
         """
-        self.connection.close()
+        if not self.testingDB:
+            self.connection.close()
 
     def getColumnNamesFromTable(self, table_name):
         """
