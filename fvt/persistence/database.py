@@ -22,13 +22,20 @@ class PyMySQLDBConnection(object):
         self.db = configReader.getDB()
 
     def __enter__(self):
+        """
+        method for creating connection for current database instance before 'with' statement
+        """
         self.connection = PyMySQLdb.connect(host=self.host, user=self.user, password=self.password, db=self.db)
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        """
+        method for closing connection for current database instance after 'with' statement
+        """
         self.connection.close()
 
     def getColumnNamesFromTable_trackusersuccessfailure(self):
+
         with self as db:
             cursor = db.connection.cursor()
 
