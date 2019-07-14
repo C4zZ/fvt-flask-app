@@ -11,7 +11,7 @@ class PyMySQLDBConnection(object):
     database class for fvt-flask-app with custom methods for accessing needed verbs and track the input of the user.
     """
 
-    def __init__(self, config_filename="defaultDB.cfg"):
+    def __init__(self, config_filename="productionDB.cfg"):
 
         self.connection = None
 
@@ -38,7 +38,8 @@ class PyMySQLDBConnection(object):
 
     def getColumnNamesFromTable(self, table_name):
         """
-        getColumnNames requests all column names via below query,formats all column names as a list and returns this list.
+        getColumnNames requests all column names via below query, formats all column names as a list and returns this
+        list.
         :param table_name: the name of the table form which all column names should be fetched.
         :return: list of all column names form table with table_name.
         """

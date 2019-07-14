@@ -3,7 +3,7 @@ from fvt import PyMySQLDBConnection
 
 @pytest.fixture()
 def setupDB():
-    db = PyMySQLDBConnection(config_filename="DBTestEnv.cfg")
+    db = PyMySQLDBConnection(config_filename="testingDB.cfg")
     return db
 
 
@@ -44,3 +44,4 @@ class TestDatabase:
                                      "tu as eu",
                                      "1",
                                      "11-07-2019")
+        # now test data needs to be rollbacked somehow?
