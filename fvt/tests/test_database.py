@@ -3,7 +3,7 @@ from fvt import PyMySQLDBConnection
 
 @pytest.fixture()
 def setupDB():
-    db = PyMySQLDBConnection()
+    db = PyMySQLDBConnection(config_filename="DBTestEnv.cfg")
     return db
 
 
