@@ -27,6 +27,6 @@ def config_testing_client():
 
 
 @pytest.fixture()
-def setupDB():
+def testDB():
     db = PyMySQLDBConnection(config_filename="testingDB.cfg")
     return db

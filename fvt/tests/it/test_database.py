@@ -1,3 +1,4 @@
+import pytest
 
 verbform = "2. Person Singular, Futur composé von avoir"
 verbsolution = "as eu"
@@ -8,13 +9,14 @@ date = "11-07-2019"
 
 class TestDatabase:
 
-    def test_trackUserPerformance(self, setupDB):
-        setupDB.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
+    def test_trackUserPerformance(self, testDB):
 
-        cursor = setupDB.connection.cursor()
-        cursor.execute("SELECT * FROM trackusersuccessfailure")
+        testDB.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
-        res = cursor.fetchall()[0]
+        with testDB.connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM trackusersuccessfailure")
+            res = cursor.fetchall()[0]
+
         assert verbform in res and \
                 verbsolution in res and \
                 erroneousUserInput in res and \
