@@ -25,6 +25,11 @@ def testingApp_config_client():
     app = create_app("testingApp.cfg")
     return app
 
+@pytest.fixture
+def productionApp_config_client():
+    app = create_app("productionApp.cfg")
+    return app
+
 
 @pytest.fixture()
 def testDB():
