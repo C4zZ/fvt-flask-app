@@ -21,6 +21,9 @@ def create_app(config_filename="productionApp.cfg"):
 
     # initialize_extensions(app)
     # register_blueprints(app)
+    @app.before_request
+    def init_database():
+        pass
 
     @app.route("/")
     def index():
