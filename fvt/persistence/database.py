@@ -104,7 +104,8 @@ class PyMySQLDBConnection(object):
 
 
 def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
-    pass
+    db = get_db()
+    db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
 
 def get_db():

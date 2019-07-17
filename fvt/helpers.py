@@ -130,22 +130,22 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # date - date
     
     if isVerbCorrect:
-        # trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
+        trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
 
-        db.execute("INSERT INTO trackUserSuccessFailure \
-        (verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, %s, %s, %s)", \
-        (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
+        #db.execute("INSERT INTO trackUserSuccessFailure \
+        #(verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, %s, %s, %s)", \
+        #(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
 
 
     else:
-        # trackUserPerformance(verbform, verbsolution, "", isVerbCorrect, date)
+        trackUserPerformance(verbform, verbsolution, "", isVerbCorrect, date)
 
-        db.execute("INSERT INTO trackUserSuccessFailure \
-        (verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, '', %s, %s)", \
-        (verbform, verbsolution, isVerbCorrect, date))
+        #db.execute("INSERT INTO trackUserSuccessFailure \
+        #(verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, '', %s, %s)", \
+        #(verbform, verbsolution, isVerbCorrect, date))
 
-    conn.commit()
+    #conn.commit()
 
     return str(isVerbCorrect)
 
