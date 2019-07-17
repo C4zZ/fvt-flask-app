@@ -4,8 +4,8 @@ class TestConfig:
     tests for loading Flask.config form an .cfg file
     """
 
-    def test_testConfigDebugIsEnabled(self, config_testing_client):
-        assert config_testing_client.debug == True
+    def test_testConfigDebugIsEnabled(self, testingApp_config_client):
+        assert testingApp_config_client.debug == True
     
-    def test_testConfigTestingIsEnabled(self, config_testing_client):
-        assert config_testing_client.testing == True
+    def test_testConfigTestingIsEnabled(self, testingApp_config_client):
+        assert testingApp_config_client.testing == True

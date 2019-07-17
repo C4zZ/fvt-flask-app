@@ -21,7 +21,7 @@ def test_client():
 
 
 @pytest.fixture
-def config_testing_client():
+def testingApp_config_client():
     app = create_app("test.cfg")
     return app
 
