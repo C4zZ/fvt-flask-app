@@ -9,7 +9,7 @@ the create_app() method
 """
 
 
-def create_app(config_filename=None):
+def create_app(config_filename="productionApp.cfg"):
     """
     create_app instantiates a Flask object for the fvt project with all of its endpoints
     """
