@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, g
 from fvt.persistence.database import PyMySQLDBConnection
 from .collect import URLrequesttoString
 from .helpers import getNewVerb, isUserInputCorrect
@@ -23,7 +23,13 @@ def create_app(config_filename="productionApp.cfg"):
     # register_blueprints(app)
     @app.before_request
     def init_database():
-        pass
+        if app.testing == True:
+            # here a database object with parameters for testing purposes is initialized.
+            g.db = PyMySQLDBConnection("testingDB.cfg")
+        else:
+            # here a database object gets initialized with the default config 'production.cfg' meaning a database object
+            # for a production environment.
+            g.db = PyMySQLDBConnection()
 
     @app.route("/")
     def index():
