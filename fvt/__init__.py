@@ -17,10 +17,10 @@ def create_app(config_filename="productionApp.cfg"):
     """
     app = Flask(__name__, instance_relative_config=False)
 
-    configReader = AppConfigReader(config_filename)
+    config_reader = AppConfigReader(config_filename)
 
-    app.testing = configReader.isTesting()
-    app.debug = configReader.isDebug()
+    app.testing = config_reader.isTesting()
+    app.debug = config_reader.isDebug()
 
     @app.before_request
     def init_database():

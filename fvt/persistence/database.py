@@ -16,13 +16,13 @@ class PyMySQLDBConnection(object):
 
         self.connection = None
 
-        configReader = DBConfigReader(config_filename)
+        config_reader = DBConfigReader(config_filename)
 
-        self.host = configReader.getHost()
-        self.user = configReader.getUser()
-        self.password = configReader.getPassword()
-        self.db = configReader.getDB()
-        self.testingDB = configReader.isTestingDB()
+        self.host = config_reader.getHost()
+        self.user = config_reader.getUser()
+        self.password = config_reader.getPassword()
+        self.db = config_reader.getDB()
+        self.testingDB = config_reader.isTestingDB()
 
     def __enter__(self):
         """
