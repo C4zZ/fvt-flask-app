@@ -1,3 +1,12 @@
+import pytest
+
+from fvt.AppConfigReader import AppConfigReader
+
+
+@pytest.fixture()
+def App_TestConfigReader():
+    configReader = AppConfigReader("AppTestConfig.cfg")
+    return configReader
 
 class TestAppConfigReader:
 
