@@ -1,4 +1,6 @@
 from flask import Flask, request, render_template, g
+
+from fvt.AppConfigReader import AppConfigReader
 from fvt.persistence.database import PyMySQLDBConnection
 from .collect import URLrequesttoString
 from .helpers import getNewVerb, isUserInputCorrect
@@ -15,12 +17,11 @@ def create_app(config_filename="productionApp.cfg"):
     """
     app = Flask(__name__, instance_relative_config=False)
 
-    if config_filename:
-        config_file_path = "configs\\" + config_filename
-        app.config.from_pyfile(config_file_path)
+    configReader = AppConfigReader(config_filename)
 
-    # initialize_extensions(app)
-    # register_blueprints(app)
+    app.testing = configReader.isTesting()
+    app.debug = configReader.isDebug()
+
     @app.before_request
     def init_database():
         if app.testing:
