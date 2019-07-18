@@ -23,7 +23,7 @@ def create_app(config_filename="productionApp.cfg"):
     # register_blueprints(app)
     @app.before_request
     def init_database():
-        if app.testing == True:
+        if app.testing:
             # here a database object with parameters for testing purposes is initialized.
             g.db = PyMySQLDBConnection("testingDB.cfg")
         else:
