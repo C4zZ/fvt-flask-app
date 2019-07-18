@@ -24,15 +24,17 @@ class AppConfigReader:
                 sys.exit(1)
 
             try:
-                self.isTesting = self.mainSection["testing"]
-                self.isDebug = self.mainSection["debug"]
+                # saving boolean value inside isTesting
+                self.testing = self.mainSection["testing"] in ("True")
+                # saving boolean value inside isDebug
+                self.debug = self.mainSection["debug"] in ("True")
 
             except KeyError:
                 print("\nPlease check whether or not you have the following keys inside the config file: TESTING, DEBUG")
                 sys.exit(1)
 
     def isTesting(self):
-        return self.isTesting
+        return self.testing
 
     def isDebug(self):
-        return self.isDebug
+        return self.debug
