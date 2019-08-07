@@ -119,6 +119,8 @@ def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbC
     db = get_db()
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
+def callGenerateRandomBaseVerb():
+    pass
 
 def get_db():
     """
