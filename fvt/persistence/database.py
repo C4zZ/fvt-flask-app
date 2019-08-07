@@ -105,6 +105,7 @@ class PyMySQLDBConnection(object):
     def generateRandomBaseVerb(self):
         pass
 
+
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
     """
     callTrackUserPerformance gets the database from the current application context and calls the database class intern
@@ -121,8 +122,10 @@ def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbC
     db = get_db()
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
+
 def callGenerateRandomBaseVerb():
     pass
+
 
 def get_db():
     """
