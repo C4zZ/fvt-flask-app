@@ -102,6 +102,8 @@ class PyMySQLDBConnection(object):
             if not self.testingDB:
                 self.connection.commit()
 
+    def generateRandomBaseVerb(self):
+        pass
 
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
     """
