@@ -127,6 +127,9 @@ def get_db():
 
 
 def close_db():
+    """
+    close_db pops the db key form the application context variable g and closes the actual database connection.
+    """
     db = g.pop("db", None)
 
     if db is not None:
