@@ -22,3 +22,9 @@ class TestDatabase:
                 erroneousUserInput in res and \
                 int(isVerbCorrect) in res and \
                 date in res
+
+    def test_trackUserPerformance_wrong_verb(self, testDB):
+        pass
+
+    def test_trackUserPerformance_right_verb(self, testDB):
+        pass
