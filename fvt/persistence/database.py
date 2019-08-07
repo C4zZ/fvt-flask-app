@@ -121,6 +121,11 @@ def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbC
 
 
 def get_db():
+    """
+    get_db checks whether or not there is the db key inside the application context variable g. If the key is not
+    available then a database connection gets created and saved as value for this key. The value for the db key gets
+    returned afterwards.
+    """
     if "db" not in g:
         g.db = PyMySQLDBConnection()
     return g.db
