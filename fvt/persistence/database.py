@@ -103,7 +103,19 @@ class PyMySQLDBConnection(object):
                 self.connection.commit()
 
 
-def trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+    """
+    callTrackUserPerformance gets the database from the current application context and calls the database class intern
+    method trackUserPerformance(...) with the given parameters.
+    :param verbform: the string containing person, number, tense and baseVerb which are important for the user to type
+    in the correct answer e.g. the grammatical form of the actual verb which the user needs to type in.
+    :param verbsolution: the correct verb build from the verbform. Needs to be documented for if the user types in
+    a wrong verb.
+    :param erroneousUserInput: the wrong input of the user if any
+    :param isVerbCorrect: 0 for the information that the user input was correct and 1 for the information that the
+    user input was incorrect.
+    :param date: the date when the user input happened with the format dd-mm-yyyy.
+    """
     db = get_db()
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
