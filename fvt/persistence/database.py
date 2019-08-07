@@ -1,4 +1,5 @@
 import pymysql as PyMySQLdb
+from random import randint
 from flask import g
 
 from fvt.DBConfigReader import DBConfigReader
@@ -103,7 +104,18 @@ class PyMySQLDBConnection(object):
                 self.connection.commit()
 
     def generateRandomBaseVerb(self):
-        pass
+        with self.connection as db_connection:
+
+            db_connection.execute("SELECT infinitiv FROM présent")
+            linkedVerbsList = db_connection.fetchall()
+
+            verbsList = []
+            for singleElementTuple in linkedVerbsList:
+                verbsList.append(singleElementTuple[0])
+
+            verb = verbsList[randint(0, len(verbsList) - 1)]
+
+            return verb
 
 
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
