@@ -137,6 +137,11 @@ def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbC
 
 
 def callGenerateRandomBaseVerb():
+    """
+    callGenerateRandomBaseVerb gets the database from the current application context and calls the database class intern
+    method generateRandomBaseVerb(...).
+    :return: a random base verb from the database
+    """
     db = get_db()
     verb = db.generateRandomBaseVerb()
     return verb
