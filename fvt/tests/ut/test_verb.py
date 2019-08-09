@@ -1,6 +1,5 @@
 from fvt.verb import Verb
 from fvt.tenses import Tenses
-# Todo: implement db with good db design
 
 
 class TestVerb:

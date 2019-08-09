@@ -1,15 +1,3 @@
-import pytest
-from flask import url_for, request
-
-from fvt import create_app
-from fvt.helpers import getNewVerb
-
-
-@pytest.fixture
-def test_app():
-    app = create_app("testingApp.cfg")
-    return app
-
 class TestApp:
     
     def test_index_GET_200_response(self, test_client):
@@ -19,13 +7,6 @@ class TestApp:
     def test_collect_GET_200_response(self, test_client):
         res = test_client.get("/collect")
         assert res.status_code == 200
-    
-    # right now this test is irrelevant
-    '''
-    def test_collect_POST_200_response(self, test_client):
-        res = test_client.post("/collect")
-        assert res.get == 200
-    '''
     
     def test_newverb_GET_200_response(self, test_client):
         res = test_client.get("/newverb")

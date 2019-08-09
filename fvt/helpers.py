@@ -1,6 +1,6 @@
 import datetime
 
-from fvt.persistence.database import callTrackUserPerformance, callGenerateRandomBaseVerb
+from fvt.persistence.database import callTrackUserPerformance, callGetRandomBaseVerb
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
@@ -16,7 +16,8 @@ zeit = [
 
 def getNewVerb():
 
-    baseVerb = callGenerateRandomBaseVerb()
+
+    baseVerb = callGetRandomBaseVerb()
     verb = Verb(baseVerb=baseVerb)
 
     return str(verb.person) + ". Person " + verb.number + ", " + verb.tense + " von " + verb.baseVerb + "."
@@ -134,19 +135,8 @@ def isUserInputCorrect(userVerb, correctVerbform):
         callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
 
-        #db.execute("INSERT INTO trackUserSuccessFailure \
-        #(verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, %s, %s, %s)", \
-        #(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
-
-
     else:
         callTrackUserPerformance(verbform, verbsolution, "", isVerbCorrect, date)
-
-        #db.execute("INSERT INTO trackUserSuccessFailure \
-        #(verbform, verb, erroneousUserInput, state, date) VALUES (%s, %s, '', %s, %s)", \
-        #(verbform, verbsolution, isVerbCorrect, date))
-
-    #conn.commit()
 
     return str(isVerbCorrect)
 

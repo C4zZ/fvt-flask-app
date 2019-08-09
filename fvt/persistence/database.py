@@ -103,9 +103,9 @@ class PyMySQLDBConnection(object):
             if not self.testingDB:
                 self.connection.commit()
 
-    def generateRandomBaseVerb(self):
+    def getRandomBaseVerb(self):
         """
-        generateRandomBaseVerb selects all base verbs that exist inside the database, randomly picks one and returns it.
+        getRandomBaseVerb selects all base verbs that exist inside the database, randomly picks one and returns it.
         :return: the randomly picked base verb
         """
         with self as db:
@@ -140,14 +140,14 @@ def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbC
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
 
-def callGenerateRandomBaseVerb():
+def callGetRandomBaseVerb():
     """
-    callGenerateRandomBaseVerb gets the database from the current application context and calls the database class intern
-    method generateRandomBaseVerb(...).
+    callGetRandomBaseVerb gets the database from the current application context and calls the database class intern
+    method getRandomBaseVerb(...).
     :return: a random base verb from the database
     """
     db = get_db()
-    verb = db.generateRandomBaseVerb()
+    verb = db.getRandomBaseVerb()
     return verb
 
 
