@@ -15,8 +15,9 @@ zeit = [
     ]
 
 def getNewVerb():
-
-
+    # because all babe verbs reside inside the database, getting a random base verb is a separate database call. This
+    # database call can not happen inside the Verb class which is why it happens outside and just before the Verb() call.
+    # baseVerb gets put into the Verb call as a parameter.
     baseVerb = callGetRandomBaseVerb()
     verb = Verb(baseVerb=baseVerb)
 
