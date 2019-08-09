@@ -58,11 +58,11 @@ def isUserInputCorrect(userVerb, correctVerbform):
         userVerb = userVerb.split("'", 1)[1]
 
     for i in range(len(personalpronomen)):
-        p = personalpronomen[i]
-        P = personalpronomen[i].capitalize()
+        personal_pronoun = personalpronomen[i]
+        capitalized_personal_pronoun = personalpronomen[i].capitalize()
        
-        if userVerb.startswith(p) or userVerb.startswith(P):
-            if userVerb[len(p)] == " ":
+        if userVerb.startswith(personal_pronoun) or userVerb.startswith(capitalized_personal_pronoun):
+            if userVerb[len(personal_pronoun)] == " ":
                 userVerb = userVerb.split(" ", 1)[1]
 
     # getting the important elements from the check String (person, zahl, zeit, verb)
@@ -72,7 +72,7 @@ def isUserInputCorrect(userVerb, correctVerbform):
     remove = str(person) + ". Person "
     correctVerbform = correctVerbform.replace(remove, "", 1)
 
-    # zahl (Singular/Plural)
+    # number (Singular/Plural)
     number = correctVerbform.split(", ", 1)[0]
     remove = number + ", "
     correctVerbform = correctVerbform.replace(remove, "", 1)
@@ -85,8 +85,8 @@ def isUserInputCorrect(userVerb, correctVerbform):
     perszahl = person + number
 
     # zeit and verb
-    zeit, infinitiv = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
-    infinitiv = infinitiv.replace(".", "")
+    tense, infinitive = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
+    infinitive = infinitive.replace(".", "")
 
     # checking a verb in Präsens (dbtablename for präsens 
     # was set to the french equivalent of présent) 
@@ -94,18 +94,16 @@ def isUserInputCorrect(userVerb, correctVerbform):
 
     # turn SELECT output to a dictionary with the respective column names
     # of a table as key values
-    #pymysql.cursors.DictCursor
-    db = conn.cursor(MySQLdb.cursors.Cursor)
 
-    if zeit == "Präsens":
+    if tense == "Präsens":
 
-        verbsolution = buildprésent(infinitiv, person, number)
+        verbsolution = buildprésent(infinitive, person, number)
 
 
-    elif zeit == "Passé composé":
-        verbsolution = buildpc(infinitiv, perszahl)
+    elif tense == "Passé composé":
+        verbsolution = buildpc(infinitive, perszahl)
 
-    elif zeit == "Futur composé":
+    elif tense == "Futur composé":
         verbsolution = ""
 
     #Problem with Impératif
@@ -141,7 +139,6 @@ def isUserInputCorrect(userVerb, correctVerbform):
     return str(isVerbCorrect)
 
 
-# separate helper functions
 def getDictVal(dictionary):
     for key in dictionary:
         return dictionary[key] 
