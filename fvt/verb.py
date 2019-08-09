@@ -19,8 +19,9 @@ class Verb:
     ]
 
     def __init__(self, person=None, number=None, tense=None, baseVerb=None):
-        """ __init__ creates a Verb instance. When any of the parameters person, number, tense or baseVerb
-            is not given, __init__ generates them.
+        """ __init__ creates a Verb instance. When any of the parameters person, number or tense is not given,
+        __init__ generates them. The parameter baseVerb needs to be fetched from the database. Since a database call
+        is involved when generating a random baseVerb it must be created outside the __init__ method.
 
         Arguments:
             person {int} -- person refers to whether the subject is first person (“je” or “nous”), second person (“tu” or “vous”) or third person (“il”/“elle”/“on” or “ils”/“elles”).
@@ -36,9 +37,6 @@ class Verb:
 
         if tense is None:
             tense = self.generateRandomTense()
-
-        if baseVerb is None:
-            baseVerb = self.generateRandomBaseVerb()
 
         self.person = person
         self.number = number
@@ -67,16 +65,3 @@ class Verb:
 
     def generateRandomTense(self):
         return self.defaultTenses[randint(0, len(self.defaultTenses) - 1)]
-
-    def generateRandomBaseVerb(self):
-
-        database.execute("SELECT infinitiv FROM présent")
-        linkedVerbsList = database.fetchall()
-
-        verbsList = []
-        for singleElementTuple in linkedVerbsList:
-            verbsList.append(singleElementTuple[0])
-
-        verb = verbsList[randint(0, len(verbsList) - 1)]
-
-        return verb

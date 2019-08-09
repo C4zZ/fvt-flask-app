@@ -1,6 +1,6 @@
 import datetime
 
-from fvt.persistence.database import callTrackUserPerformance
+from fvt.persistence.database import callTrackUserPerformance, callGenerateRandomBaseVerb
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
@@ -16,7 +16,8 @@ zeit = [
 
 def getNewVerb():
 
-    verb = Verb()
+    baseVerb = callGenerateRandomBaseVerb()
+    verb = Verb(baseVerb=baseVerb)
 
     return str(verb.person) + ". Person " + verb.number + ", " + verb.tense + " von " + verb.baseVerb + "."
 

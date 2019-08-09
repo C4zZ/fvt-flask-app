@@ -104,10 +104,11 @@ class PyMySQLDBConnection(object):
                 self.connection.commit()
 
     def generateRandomBaseVerb(self):
-        with self.connection as db_connection:
+        with self as db:
+            cursor = db.connection.cursor()
 
-            db_connection.execute("SELECT infinitiv FROM présent")
-            linkedVerbsList = db_connection.fetchall()
+            cursor.execute("SELECT infinitiv FROM présent")
+            linkedVerbsList = cursor.fetchall()
 
             verbsList = []
             for singleElementTuple in linkedVerbsList:

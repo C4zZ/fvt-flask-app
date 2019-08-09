@@ -1,7 +1,14 @@
 import pytest
 from flask import url_for, request
+
+from fvt import create_app
 from fvt.helpers import getNewVerb
 
+
+@pytest.fixture
+def test_app():
+    app = create_app("testingApp.cfg")
+    return app
 
 class TestApp:
     
@@ -29,14 +36,6 @@ class TestApp:
         assert res.data.decode("utf-8") != ""
         assert len(res.data) > 0
 
-    def test_validateverb_POST_200_response(self, test_client):
-        dummydata = {
-            "verbform": getNewVerb(),
-            "userverb": "userinput"
-        }
-        res = test_client.post("/validateverb", data=dummydata)
-        assert res.status_code == 200
-
     def test_validateverb_POST_userinput_success(self, test_client):
         dummydata = {
             "verbform": "2. Person Singular, Passé composé von avoir.",
@@ -45,6 +44,7 @@ class TestApp:
         res = test_client.post("/validateverb", data=dummydata)
         
         assert res.get_data(as_text=True) == "True"
+        assert res.status_code == 200
 
     def test_validateverb_POST_userinput_fail(self, test_client):
         dummydata = {
