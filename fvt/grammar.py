@@ -18,8 +18,8 @@ def buildprésent(inf, person, number):
 
 
 # passé-composé 
-def buildpc(inf, pz):
-
+def buildpc(inf, person, number):
+    column = determine_column(person, number)
     db.execute("SELECT vom FROM présent WHERE infinitiv = %s", (inf,))
     vom = db.fetchone()["vom"]
     # if current verb is a verb of motion (vom) in passé composé
@@ -30,11 +30,11 @@ def buildpc(inf, pz):
     
     if vom == "1":
         db.execute("SELECT * FROM présent WHERE infinitiv = 'être'")
-        auxiliary = db.fetchone()[pz]
+        auxiliary = db.fetchone()[column]
         result = auxiliary
     else:
         db.execute("SELECT * FROM présent WHERE infinitiv = 'avoir'")
-        auxiliary = db.fetchone()[pz]
+        auxiliary = db.fetchone()[column]
         result = auxiliary
 
     return result + " " + pp

@@ -82,8 +82,6 @@ def isUserInputCorrect(userVerb, correctVerbform):
     else:
         number = "Pl"
 
-    perszahl = person + number
-
     # zeit and verb
     tense, infinitive = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
     infinitive = infinitive.replace(".", "")
@@ -101,7 +99,7 @@ def isUserInputCorrect(userVerb, correctVerbform):
 
 
     elif tense == "Passé composé":
-        verbsolution = buildpc(infinitive, perszahl)
+        verbsolution = buildpc(infinitive, person, number)
 
     elif tense == "Futur composé":
         verbsolution = ""
