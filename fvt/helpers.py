@@ -73,17 +73,16 @@ def isUserInputCorrect(userVerb, correctVerbform):
     correctVerbform = correctVerbform.replace(remove, "", 1)
 
     # zahl (Singular/Plural)
-    zahl = correctVerbform.split(", ", 1)[0]
-    remove = zahl + ", "
+    number = correctVerbform.split(", ", 1)[0]
+    remove = number + ", "
     correctVerbform = correctVerbform.replace(remove, "", 1)
 
-    if zahl == "Singular":
-        zahl = "Sg"
+    if number == "Singular":
+        number = "Sg"
     else:
-        zahl = "Pl"
+        number = "Pl"
 
-    #variable for choosing the correct column
-    perszahl = person + zahl
+    perszahl = person + number
 
     # zeit and verb
     zeit, infinitiv = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
@@ -100,7 +99,7 @@ def isUserInputCorrect(userVerb, correctVerbform):
 
     if zeit == "Präsens":
 
-        verbsolution = buildprésent(infinitiv, perszahl)
+        verbsolution = buildprésent(infinitiv, person, number)
 
 
     elif zeit == "Passé composé":

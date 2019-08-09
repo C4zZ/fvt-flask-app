@@ -123,6 +123,8 @@ class PyMySQLDBConnection(object):
             return verb
 
 
+
+
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
     """
     callTrackUserPerformance gets the database from the current application context and calls the database class intern

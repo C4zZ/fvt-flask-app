@@ -8,10 +8,12 @@ db = conn.cursor(MySQLdb.cursors.DictCursor)
 
 
 # présent
-def buildprésent(inf, pz):
+def buildprésent(inf, person, number):
+
+    column = determine_column(person, number)
     db.execute("SELECT * FROM présent WHERE infinitiv = %s", (inf,))
     verbrow = db.fetchone()
-    verbsolution = verbrow[pz]
+    verbsolution = verbrow[column]
     return verbsolution
 
 
@@ -36,5 +38,7 @@ def buildpc(inf, pz):
         result = auxiliary
 
     return result + " " + pp
-    
 
+
+def determine_column(person, number):
+    return person + number
