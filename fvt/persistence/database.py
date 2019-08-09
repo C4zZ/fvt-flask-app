@@ -104,6 +104,10 @@ class PyMySQLDBConnection(object):
                 self.connection.commit()
 
     def generateRandomBaseVerb(self):
+        """
+        generateRandomBaseVerb selects all base verbs that exist inside the database, randomly picks one and returns it.
+        :return: the randomly picked base verb
+        """
         with self as db:
             cursor = db.connection.cursor()
 
