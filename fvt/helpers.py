@@ -127,10 +127,10 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # date - date
 
     if isVerbCorrect:
-        callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
+        callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
     else:
-        callTrackUserPerformance(verbform, verbsolution, "", isVerbCorrect, date)
+        callTrackUserPerformance(verbform, verbsolution, "", date)
 
     return str(isVerbCorrect)
 

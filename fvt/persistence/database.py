@@ -78,7 +78,7 @@ class PyMySQLDBConnection(object):
 
             return table_names_list
 
-    def trackUserPerformance(self, verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+    def trackUserPerformance(self, verbform, verbsolution, erroneousUserInput, date):
         """
         trackUserPerformance tracks whether the user typed in the correct verb or not. It documents the users input when
         it was wrong and when this input was typed in.
@@ -87,7 +87,6 @@ class PyMySQLDBConnection(object):
         :param verbsolution: the correct verb build from the verbform. Needs to be documented for if the user types in
         a wrong verb.
         :param erroneousUserInput: the wrong input of the user if any
-        :param isVerbCorrect: 0 for the information that the user input was correct and 1 for the information that the
         user input was incorrect.
         :param date: the date when the user input happened with the format dd-mm-yyyy.
         """
@@ -95,9 +94,19 @@ class PyMySQLDBConnection(object):
         with self as db:
             cursor = db.connection.cursor()
 
-            cursor.execute(
-                "INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
-                "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, isVerbCorrect, date))
+            # 0 get put into the state column for signaling that the user input was incorrect for the given verbform
+            if len(erroneousUserInput) > 0:
+                cursor.execute(
+                    "INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
+                    "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, "0", date)
+                )
+            # 1 get put into the state column for signaling that the user input was correct for the given verbform
+            else:
+                cursor.execute(
+                    "INSERT INTO trackusersuccessfailure (verbform, verb, erroneousUserInput, state, date) VALUES "
+                    "(%s, %s, %s, %s, %s)", (verbform, verbsolution, erroneousUserInput, "1", date)
+                )
+
 
             # commit query only if this database instance is not for testing purposes
             if not self.testingDB:
@@ -136,7 +145,7 @@ class PyMySQLDBConnection(object):
             return présent
 
 
-def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
+def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date):
     """
     callTrackUserPerformance gets the database from the current application context and calls the database class intern
     method trackUserPerformance(...) with the given parameters.
@@ -145,12 +154,11 @@ def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbC
     :param verbsolution: the correct verb build from the verbform. Needs to be documented for if the user types in
     a wrong verb.
     :param erroneousUserInput: the wrong input of the user if any
-    :param isVerbCorrect: 0 for the information that the user input was correct and 1 for the information that the
     user input was incorrect.
     :param date: the date when the user input happened with the format dd-mm-yyyy.
     """
     db = get_db()
-    db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
+    db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
 
 def callGetRandomBaseVerb():

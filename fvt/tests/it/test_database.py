@@ -14,10 +14,10 @@ class TestDatabase:
         verbform = "2. Person Singular, Futur composé von avoir"
         verbsolution = "as eu"
         erroneousUserInput = "tu as eu"
-        isVerbCorrect = "1"
+        isVerbCorrect = "0"
         date = "11-07-2019"
 
-        testDB.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
+        testDB.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
         with testDB.connection.cursor() as cursor:
             cursor.execute("SELECT * FROM trackusersuccessfailure")
