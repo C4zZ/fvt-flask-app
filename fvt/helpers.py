@@ -36,11 +36,11 @@ def getNewVerb():
     return str(verb.person) + ". Person " + verb.number + ", " + verb.tense + " von " + verb.baseVerb + "."
 
 
-def isUserInputCorrect(userVerb, correctVerbform):
+def isUserInputCorrect(user_input, verbform):
     """
     isUserInputCorrect is responsible for checking the user input and tracking the performance of the user.
-    :param userVerb: the user input.
-    :param correctVerbform: the correct parts of the verb () in String form which needed to be inputted by the user and
+    :param user_input: the user input.
+    :param verbform: the correct parts of the verb () in String form which needed to be inputted by the user and
                             against which the user input is compared.
     :return: True if user input is true; else returns false.
     """
@@ -49,46 +49,46 @@ def isUserInputCorrect(userVerb, correctVerbform):
     date = datetime.datetime.now().strftime("%d" + "-" + "%m" + "-" + "%Y")
 
     # saving the whole verbform for tracking inside the table trackUserSuccessFailure
-    verbform = correctVerbform
+    verbform = verbform
     # saving the whole verb typed in by the user for tracking inside the table trackUserSuccessFailure
-    erroneousUserInput = userVerb
+    erroneousUserInput = user_input
 
     # removing the personal pronouns from the userinput if they exist at the beginning
 
-    if userVerb.startswith("j'") or userVerb.startswith("J'"):
-        userVerb = userVerb.split("'", 1)[1]
+    if user_input.startswith("j'") or user_input.startswith("J'"):
+        user_input = user_input.split("'", 1)[1]
 
     for i in range(len(personalpronomen)):
         personal_pronoun = personalpronomen[i]
         capitalized_personal_pronoun = personalpronomen[i].capitalize()
        
-        if userVerb.startswith(personal_pronoun) or userVerb.startswith(capitalized_personal_pronoun):
-            if userVerb[len(personal_pronoun)] == " ":
-                userVerb = userVerb.split(" ", 1)[1]
+        if user_input.startswith(personal_pronoun) or user_input.startswith(capitalized_personal_pronoun):
+            if user_input[len(personal_pronoun)] == " ":
+                user_input = user_input.split(" ", 1)[1]
 
     # getting the important elements from the check String (person, zahl, zeit, verb)
 
     # person (1/2/3)
-    person = correctVerbform.split(". Person ", 1)[0]
+    person = verbform.split(". Person ", 1)[0]
     remove = str(person) + ". Person "
-    correctVerbform = correctVerbform.replace(remove, "", 1)
+    verbform = verbform.replace(remove, "", 1)
 
     # number (Singular/Plural)
-    number = correctVerbform.split(", ", 1)[0]
+    number = verbform.split(", ", 1)[0]
     remove = number + ", "
-    correctVerbform = correctVerbform.replace(remove, "", 1)
+    verbform = verbform.replace(remove, "", 1)
 
     number = "Sg" if number == "Singular" else "Pl"
 
     # zeit and verb
-    tense, infinitive = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
+    tense, infinitive = verbform.split(" von ", 1)[0], verbform.split(" von ", 1)[1]
     infinitive = infinitive.replace(".", "")
 
     # getting the actual correct solution for the given verbform for comparing against the input of the user
     verbsolution = get_verb_solution(tense, infinitive, person, number)
 
-    # determine wheter the user input is correct or not
-    isVerbCorrect = True if userVerb == verbsolution else False
+    # determine whether the user input is correct or not
+    isVerbCorrect = True if user_input == verbsolution else False
 
     # tracking users performance with the help of given data
     if isVerbCorrect:
@@ -126,18 +126,8 @@ def get_verb_solution(tense, infinitive, person, number):
     elif tense == "Passé composé":
         verbsolution = buildpc(infinitive, person, number)
 
-    elif tense == "Futur composé":
-        verbsolution = ""
-
-        # Problem with Impératif
-        # if zeit == "Impératif":
-        # verbsolution = ""
-
-        # checking a verb in a different tense
+    # checking a verb in a different tense
     else:
         verbsolution = "OTHER VERBTENSE"
-
-    # to parse a boolean to javascript
-    # checking if the verb typed by the user matches the verbsolution
 
     return verbsolution
