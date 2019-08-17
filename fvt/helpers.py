@@ -48,35 +48,28 @@ def isUserInputCorrect(user_input, verbform):
     # getting current time in the form of yyyy-mm-dd
     date = datetime.datetime.now().strftime("%d" + "-" + "%m" + "-" + "%Y")
 
-    # saving the whole verbform for tracking inside the table trackUserSuccessFailure
-    verbform = verbform
-    # saving the whole verb typed in by the user for tracking inside the table trackUserSuccessFailure
-    erroneousUserInput = user_input
-
     # removing potentially written personal pronouns from the beginning of the user_input string
     user_input = remove_pronouns_from_user_input(user_input)
 
-    # getting the important elements from the check String (person, number, zeit, verb)
+    # getting the important elements from the check String (person, number, tense, verb)
     person = get_person_from_verbform(verbform)
-
     number = get_number_from_verbform(verbform)
-
     tense = get_tense_from_verbform(verbform)
-
     infinitive = get_infinitive_from_verbform(verbform)
 
     # getting the actual correct solution for the given verbform for comparing against the input of the user
     verbsolution = get_verb_solution(tense, infinitive, person, number)
 
     # determine whether the user input is correct or not
-    isVerbCorrect = True if user_input == verbsolution else False
+    if user_input == verbsolution:
+        isVerbCorrect = True
+        erroneousUserInput = ""
+    else:
+        isVerbCorrect = False
+        erroneousUserInput = user_input
 
     # tracking users performance with the help of given data
-    if isVerbCorrect:
-        callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
-
-    else:
-        callTrackUserPerformance(verbform, verbsolution, "", date)
+    callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
     return str(isVerbCorrect)
 
