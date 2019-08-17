@@ -24,7 +24,7 @@ class TestDatabase:
         assert 0 in query
         assert date in query
 
-    def test_trackUserPerformance_right_verb(self, testDB):
+    def test_trackUserPerformance_correct_verb(self, testDB):
         pass
 
 
