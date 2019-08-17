@@ -1,4 +1,4 @@
-from fvt.helpers import remove_pronouns_from_user_input
+from fvt.helpers import remove_pronouns_from_user_input, get_person_from_verbform
 
 
 class TestHelper:
@@ -44,3 +44,9 @@ class TestHelper:
 
     def test_remove_pronouns_from_user_input_no_removal(self):
         assert remove_pronouns_from_user_input("foo") == "foo"
+
+    def test_get_person_from_verbform1(self):
+        assert get_person_from_verbform("3. Person Singular von aller") == "3"
+
+    def test_get_person_from_verbform2(self):
+        assert get_person_from_verbform("Person Singular von aller") == ""
