@@ -1,15 +1,21 @@
 import pytest
 
-verbform = "2. Person Singular, Futur composé von avoir"
-verbsolution = "as eu"
-erroneousUserInput = "tu as eu"
-isVerbCorrect = "1"
-date = "11-07-2019"
+verbform = ""
+verbsolution = ""
+erroneousUserInput = ""
+isVerbCorrect = ""
+date = ""
 
 
 class TestDatabase:
 
     def test_trackUserPerformance(self, testDB):
+
+        verbform = "2. Person Singular, Futur composé von avoir"
+        verbsolution = "as eu"
+        erroneousUserInput = "tu as eu"
+        isVerbCorrect = "1"
+        date = "11-07-2019"
 
         testDB.trackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
 
