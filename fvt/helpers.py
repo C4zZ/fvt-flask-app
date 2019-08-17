@@ -115,16 +115,6 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # checking if the verb typed by the user matches the verbsolution
 
     isVerbCorrect = True if userVerb == verbsolution else False
-        
-
-    # tracks the successful and failed userinputs of a given verb
-    # column names for table trackUserSuccessFailure
-    # error_id - error_id
-    # verbform - verbform
-    # verb - verbsolution
-    # erroneousUserInput - erroneousUserInput
-    # state - bitboolean
-    # date - date
 
     if isVerbCorrect:
         callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date)

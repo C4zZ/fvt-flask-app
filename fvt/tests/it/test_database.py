@@ -14,23 +14,28 @@ class TestDatabase:
         verbform = "2. Person Singular, Futur composé von avoir"
         verbsolution = "as eu"
         erroneousUserInput = "tu as eu"
-        isVerbCorrect = "0"
         date = "11-07-2019"
 
-        testDB.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
+        query = get_query_results_for(testDB, verbform, verbsolution, erroneousUserInput, date)
 
-        with testDB.connection.cursor() as cursor:
-            cursor.execute("SELECT * FROM trackusersuccessfailure")
-            res = cursor.fetchall()[0]
-
-            assert verbform in res
-            assert verbsolution in res
-            assert erroneousUserInput in res
-            assert int(isVerbCorrect) in res
-            assert date in res
+        assert verbform in query
+        assert verbsolution in query
+        assert erroneousUserInput in query
+        assert 0 in query
+        assert date in query
 
     def test_trackUserPerformance_wrong_verb(self, testDB):
         pass
 
     def test_trackUserPerformance_right_verb(self, testDB):
         pass
+
+
+def get_query_results_for(db, verbform, verbsolution, erroneousUserInput, date):
+    db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
+
+    with db.connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM trackusersuccessfailure")
+        query = cursor.fetchall()[0]
+
+        return query
