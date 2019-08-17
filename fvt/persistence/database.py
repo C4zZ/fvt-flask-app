@@ -122,7 +122,8 @@ class PyMySQLDBConnection(object):
 
             return verb
 
-
+    def build_présent(self, infinitive, person, number):
+        pass
 
 
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):

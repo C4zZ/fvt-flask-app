@@ -94,7 +94,6 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # of a table as key values
 
     if tense == "Präsens":
-
         verbsolution = buildprésent(infinitive, person, number)
 
 
@@ -126,10 +125,9 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # erroneousUserInput - erroneousUserInput
     # state - bitboolean
     # date - date
-    
+
     if isVerbCorrect:
         callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date)
-
 
     else:
         callTrackUserPerformance(verbform, verbsolution, "", isVerbCorrect, date)
