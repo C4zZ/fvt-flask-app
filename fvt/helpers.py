@@ -56,13 +56,10 @@ def isUserInputCorrect(user_input, verbform):
     # removing potentially written personal pronouns from the beginning of the user_input string
     user_input = remove_pronouns_from_user_input(user_input)
 
-    # getting the important elements from the check String (person, zahl, zeit, verb)
+    # getting the important elements from the check String (person, number, zeit, verb)
     person = get_person_from_verbform(verbform)
 
-    # number (Singular/Plural)
-    number = verbform.split(", ", 1)[0]
-    remove = number + ", "
-    verbform = verbform.replace(remove, "", 1)
+    number = get_number_from_verbform(verbform)
 
     number = "Sg" if number == "Singular" else "Pl"
 
