@@ -163,3 +163,9 @@ def get_number_from_verbform(verbform):
         return "Pl"
     else:
         return ""
+
+def get_infinitive_from_verbform(verbform):
+    pass
+
+def get_tense_from_verbform(verbform):
+    pass
