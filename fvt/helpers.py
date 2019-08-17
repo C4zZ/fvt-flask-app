@@ -53,18 +53,8 @@ def isUserInputCorrect(user_input, verbform):
     # saving the whole verb typed in by the user for tracking inside the table trackUserSuccessFailure
     erroneousUserInput = user_input
 
-    # removing the personal pronouns from the userinput if they exist at the beginning
-
-    if user_input.startswith("j'") or user_input.startswith("J'"):
-        user_input = user_input.split("'", 1)[1]
-
-    for i in range(len(personalpronomen)):
-        personal_pronoun = personalpronomen[i]
-        capitalized_personal_pronoun = personalpronomen[i].capitalize()
-       
-        if user_input.startswith(personal_pronoun) or user_input.startswith(capitalized_personal_pronoun):
-            if user_input[len(personal_pronoun)] == " ":
-                user_input = user_input.split(" ", 1)[1]
+    # removing potentially written personal pronouns from the beginning of the user_input string
+    user_input = remove_pronouns_from_user_input(user_input)
 
     # getting the important elements from the check String (person, zahl, zeit, verb)
 
