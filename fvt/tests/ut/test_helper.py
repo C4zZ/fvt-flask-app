@@ -1,7 +1,7 @@
 from fvt.helpers import remove_pronouns_from_user_input
 
 
-class TestHelper():
+class TestHelper:
 
     def test_remove_pronouns_from_user_input_correct_pronoun_removal1(self):
         assert remove_pronouns_from_user_input("j'irai") == "irai"
@@ -41,3 +41,6 @@ class TestHelper():
     def test_remove_pronouns_from_user_input_correct_pronoun_removal10(self):
         assert remove_pronouns_from_user_input("elles vont") == "vont"
         assert remove_pronouns_from_user_input("ellesvont") == "vont"
+
+    def test_remove_pronouns_from_user_input_no_removal(self):
+        assert remove_pronouns_from_user_input("foo") == "foo"
