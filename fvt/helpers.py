@@ -168,7 +168,9 @@ def get_number_from_verbform(verbform):
 
 
 def get_infinitive_from_verbform(verbform):
-    pass
+    infinitive = verbform.split(" ")[5]
+    infinitive.replace(".", "")
+    return infinitive
 
 
 def get_tense_from_verbform(verbform):
