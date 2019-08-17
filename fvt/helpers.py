@@ -169,7 +169,7 @@ def get_number_from_verbform(verbform):
 
 def get_infinitive_from_verbform(verbform):
     infinitive = verbform.split(" ")[5]
-    infinitive.replace(".", "")
+    infinitive = infinitive.replace(".", "")
     return infinitive
 
 

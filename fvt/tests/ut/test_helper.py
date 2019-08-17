@@ -1,5 +1,5 @@
 from fvt.helpers import remove_pronouns_from_user_input, get_person_from_verbform, get_number_from_verbform, \
-    get_tense_from_verbform
+    get_tense_from_verbform, get_infinitive_from_verbform
 
 
 class TestHelper:
@@ -73,10 +73,10 @@ class TestHelper:
 
     # test for get_infinitive_from_verbform(verbform)
     def test_get_infinitive_from_verbform1(self):
-        pass
+        assert get_infinitive_from_verbform(build_verbform(1, "number", "tense", "infinitive")) == "infinitive"
 
     def test_get_infinitive_from_verbform2(self):
-        pass
+        assert get_infinitive_from_verbform(build_verbform(1, "number", "tense", "")) == ""
 
 def build_verbform(person, number, tense, baseVerb):
     return str(person) + ". Person " + number + ", " + tense + " von " + baseVerb + "."
