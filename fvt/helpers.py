@@ -76,27 +76,14 @@ def isUserInputCorrect(userVerb, correctVerbform):
     number = correctVerbform.split(", ", 1)[0]
     remove = number + ", "
     correctVerbform = correctVerbform.replace(remove, "", 1)
-
-    if number == "Singular":
-        number = "Sg"
-    else:
-        number = "Pl"
+    
+    number = "Sg" if number == "Singular" else "Pl"
 
     # zeit and verb
     tense, infinitive = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
     infinitive = infinitive.replace(".", "")
 
-    # checking a verb in Präsens (dbtablename for präsens 
-    # was set to the french equivalent of présent) 
-    # or in impératif or in passé composé or in futur composé   
-
-    # turn SELECT output to a dictionary with the respective column names
-    # of a table as key values
-
     verbsolution = get_verb_solution(tense, infinitive, person, number)
-
-    # to parse a boolean to javascript
-    # checking if the verb typed by the user matches the verbsolution
 
     isVerbCorrect = True if userVerb == verbsolution else False
 
