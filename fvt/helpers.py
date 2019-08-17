@@ -131,3 +131,7 @@ def get_verb_solution(tense, infinitive, person, number):
         verbsolution = "OTHER VERBTENSE"
 
     return verbsolution
+
+
+def remove_pronouns_from_user_input(user_input):
+    pass
