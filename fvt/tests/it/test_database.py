@@ -17,11 +17,11 @@ class TestDatabase:
             cursor.execute("SELECT * FROM trackusersuccessfailure")
             res = cursor.fetchall()[0]
 
-        assert verbform in res and \
-                verbsolution in res and \
-                erroneousUserInput in res and \
-                int(isVerbCorrect) in res and \
-                date in res
+        assert verbform in res
+        assert verbsolution in res
+        assert erroneousUserInput in res
+        assert int(isVerbCorrect) in res
+        assert date in res
 
     def test_trackUserPerformance_wrong_verb(self, testDB):
         pass
