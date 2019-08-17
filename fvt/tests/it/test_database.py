@@ -9,11 +9,11 @@ date = ""
 
 class TestDatabase:
 
-    def test_trackUserPerformance(self, testDB):
+    def test_trackUserPerformance_wrong_verb(self, testDB):
 
-        verbform = "2. Person Singular, Futur composé von avoir"
-        verbsolution = "as eu"
-        erroneousUserInput = "tu as eu"
+        verbform = "verbform"
+        verbsolution = "verbsolution"
+        erroneousUserInput = "WRONG_USER_INPUT"
         date = "11-07-2019"
 
         query = get_query_results_for(testDB, verbform, verbsolution, erroneousUserInput, date)
@@ -23,9 +23,6 @@ class TestDatabase:
         assert erroneousUserInput in query
         assert 0 in query
         assert date in query
-
-    def test_trackUserPerformance_wrong_verb(self, testDB):
-        pass
 
     def test_trackUserPerformance_right_verb(self, testDB):
         pass
