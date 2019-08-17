@@ -172,4 +172,8 @@ def get_infinitive_from_verbform(verbform):
 
 
 def get_tense_from_verbform(verbform):
-    tense = verbform.split(" von ", 1)[0]
+    tense = verbform.split(" ")[3]
+    if len(tense) > 0:
+        return tense
+    else:
+        return ""

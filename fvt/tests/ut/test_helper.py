@@ -1,4 +1,5 @@
-from fvt.helpers import remove_pronouns_from_user_input, get_person_from_verbform, get_number_from_verbform
+from fvt.helpers import remove_pronouns_from_user_input, get_person_from_verbform, get_number_from_verbform, \
+    get_tense_from_verbform
 
 
 class TestHelper:
@@ -65,10 +66,10 @@ class TestHelper:
 
     # tests for get_tense_from_verbform(verbform)
     def test_get_tense_from_verbform1(self):
-        pass
+        assert get_tense_from_verbform(build_verbform(3, "number", "tense", "verb")) == "tense"
 
     def test_get_tense_from_verbform2(self):
-        pass
+        assert get_tense_from_verbform(build_verbform(3, "number", "", "verb")) == ""
 
 def build_verbform(person, number, tense, baseVerb):
     return str(person) + ". Person " + number + ", " + tense + " von " + baseVerb + "."
