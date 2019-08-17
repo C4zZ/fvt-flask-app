@@ -159,4 +159,5 @@ def remove_pronouns_from_user_input(user_input):
     return user_input
 
 def get_person_from_verbform(verbform):
-    pass
+    person = verbform.split(". Person ", 1)[0]
+    return person
