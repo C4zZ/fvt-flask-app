@@ -159,3 +159,6 @@ def get_person_from_verbform(verbform):
     if len(person) > 1:
         person = ""
     return person
+
+def get_number_from_verbform(verbform):
+    pass
