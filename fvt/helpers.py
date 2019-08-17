@@ -134,4 +134,7 @@ def get_verb_solution(tense, infinitive, person, number):
 
 
 def remove_pronouns_from_user_input(user_input):
-    pass
+    if user_input.startswith("j'") or user_input.startswith("J'"):
+        user_input = user_input.split("'", 1)[1]
+
+    return user_input
