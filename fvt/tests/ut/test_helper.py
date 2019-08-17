@@ -71,5 +71,12 @@ class TestHelper:
     def test_get_tense_from_verbform2(self):
         assert get_tense_from_verbform(build_verbform(3, "number", "", "verb")) == ""
 
+    # test for get_infinitive_from_verbform(verbform)
+    def test_get_infinitive_from_verbform1(self):
+        pass
+
+    def test_get_infinitive_from_verbform2(self):
+        pass
+
 def build_verbform(person, number, tense, baseVerb):
     return str(person) + ". Person " + number + ", " + tense + " von " + baseVerb + "."
