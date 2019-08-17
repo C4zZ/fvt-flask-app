@@ -57,11 +57,7 @@ def isUserInputCorrect(user_input, verbform):
     user_input = remove_pronouns_from_user_input(user_input)
 
     # getting the important elements from the check String (person, zahl, zeit, verb)
-
-    # person (1/2/3)
-    person = verbform.split(". Person ", 1)[0]
-    remove = str(person) + ". Person "
-    verbform = verbform.replace(remove, "", 1)
+    person = get_person_from_verbform(verbform)
 
     # number (Singular/Plural)
     number = verbform.split(", ", 1)[0]
