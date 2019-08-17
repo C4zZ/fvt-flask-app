@@ -4,14 +4,10 @@ from fvt.helpers import remove_pronouns_from_user_input
 class TestHelper():
 
     def test_remove_pronouns_from_user_input_correct_pronoun_removal1(self):
-        user_input = "j'irai"
-        result = remove_pronouns_from_user_input(user_input)
-        assert result == "irai"
+        assert remove_pronouns_from_user_input("j'irai") == "irai"
 
     def test_remove_pronouns_from_user_input_correct_pronoun_removal2(self):
-        user_input = "je vais"
-        result = remove_pronouns_from_user_input(user_input)
-        assert result == "vais"
+        assert remove_pronouns_from_user_input("je vais") == "vais"
     
     def test_remove_pronouns_from_user_input_correct_pronoun_removal3(self):
         pass
