@@ -61,10 +61,9 @@ def isUserInputCorrect(user_input, verbform):
 
     number = get_number_from_verbform(verbform)
 
-    tense = verbform.split(" von ", 1)[0]
+    tense = get_tense_from_verbform(verbform)
 
-    infinitive = verbform.split(" von ", 1)[1]
-    infinitive = infinitive.replace(".", "")
+    infinitive = get_infinitive_from_verbform(verbform)
 
     # getting the actual correct solution for the given verbform for comparing against the input of the user
     verbsolution = get_verb_solution(tense, infinitive, person, number)
@@ -174,8 +173,7 @@ def get_infinitive_from_verbform(verbform):
 
 
 def get_tense_from_verbform(verbform):
-    tense = verbform.split(" ")[3]
-    if len(tense) > 0:
-        return tense
-    else:
-        return ""
+    for tense in zeit:
+        if tense in verbform:
+            return tense
+    return ""

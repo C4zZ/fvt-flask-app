@@ -66,7 +66,7 @@ class TestHelper:
 
     # tests for get_tense_from_verbform(verbform)
     def test_get_tense_from_verbform1(self):
-        assert get_tense_from_verbform(build_verbform(3, "number", "tense", "verb")) == "tense"
+        assert get_tense_from_verbform(build_verbform(3, "number", "Passé composé", "verb")) == "Passé composé"
 
     def test_get_tense_from_verbform2(self):
         assert get_tense_from_verbform(build_verbform(3, "number", "", "verb")) == ""
