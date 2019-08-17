@@ -15,7 +15,8 @@ class TestDatabase:
         assert 0 in query
 
     def test_trackUserPerformance_correct_verb(self, testDB):
-        pass
+        query = get_query_results_for(testDB, verbform, verbsolution, erroneousUserInput, date)
+        assert 1 in query
 
 
 def get_query_results_for(db, verbform, verbsolution, erroneousUserInput, date):
