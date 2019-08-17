@@ -15,7 +15,7 @@ zeit = [
     ]
 
 personalpronomen = [
-        "je ", #??
+        "je", #??
         "tu",
         "il",
         "elle",
@@ -136,5 +136,14 @@ def get_verb_solution(tense, infinitive, person, number):
 def remove_pronouns_from_user_input(user_input):
     if user_input.startswith("j'") or user_input.startswith("J'"):
         user_input = user_input.split("'", 1)[1]
+
+    for i in range(len(personalpronomen)):
+        personal_pronoun = personalpronomen[i]
+
+        if user_input.startswith(personal_pronoun) or user_input.startswith(personal_pronoun.capitalize()):
+            user_input = user_input[len(personal_pronoun):]
+
+        if user_input[0] == " ":
+            user_input = user_input[1:]
 
     return user_input
