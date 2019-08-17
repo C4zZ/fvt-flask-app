@@ -15,15 +15,15 @@ zeit = [
     ]
 
 personalpronomen = [
-        "je", #??
+        "elles",
+        "ils",
+        "je",
         "tu",
         "il",
         "elle",
         "on",
         "nous",
-        "vous",
-        "ils",
-        "elles"
+        "vous"
         ]
 
 def getNewVerb():
