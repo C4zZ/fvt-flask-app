@@ -142,5 +142,26 @@ def listOfDictsToList(dictsList):
     newList = iterateList(dictsList)
     return newList
 
-def get_verb_solution(tense):
-    pass
+def get_verb_solution(tense, infinitive, person, number):
+    if tense == "Präsens":
+        verbsolution = buildprésent(infinitive, person, number)
+
+
+    elif tense == "Passé composé":
+        verbsolution = buildpc(infinitive, person, number)
+
+    elif tense == "Futur composé":
+        verbsolution = ""
+
+        # Problem with Impératif
+        # if zeit == "Impératif":
+        # verbsolution = ""
+
+        # checking a verb in a different tense
+    else:
+        verbsolution = "OTHER VERBTENSE"
+
+    # to parse a boolean to javascript
+    # checking if the verb typed by the user matches the verbsolution
+
+    return verbsolution
