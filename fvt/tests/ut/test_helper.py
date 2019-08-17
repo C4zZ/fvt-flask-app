@@ -73,10 +73,10 @@ class TestHelper:
 
     # test for get_infinitive_from_verbform(verbform)
     def test_get_infinitive_from_verbform1(self):
-        assert get_infinitive_from_verbform(build_verbform(1, "number", "tense", "infinitive")) == "infinitive"
+        assert get_infinitive_from_verbform(build_verbform(1, "number", "Passé composé", "infinitive")) == "infinitive"
 
     def test_get_infinitive_from_verbform2(self):
-        assert get_infinitive_from_verbform(build_verbform(1, "number", "tense", "")) == ""
+        assert get_infinitive_from_verbform(build_verbform(1, "number", "Passé composé", "")) == ""
 
 def build_verbform(person, number, tense, baseVerb):
     return str(person) + ". Person " + number + ", " + tense + " von " + baseVerb + "."
