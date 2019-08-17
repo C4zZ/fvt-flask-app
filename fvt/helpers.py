@@ -93,23 +93,7 @@ def isUserInputCorrect(userVerb, correctVerbform):
     # turn SELECT output to a dictionary with the respective column names
     # of a table as key values
 
-    if tense == "Präsens":
-        verbsolution = buildprésent(infinitive, person, number)
-
-
-    elif tense == "Passé composé":
-        verbsolution = buildpc(infinitive, person, number)
-
-    elif tense == "Futur composé":
-        verbsolution = ""
-
-    #Problem with Impératif
-    #if zeit == "Impératif":
-        #verbsolution = ""
-
-    # checking a verb in a different tense
-    else:
-        verbsolution = "OTHER VERBTENSE"
+    verbsolution = get_verb_solution(tense, infinitive, person, number)
 
     # to parse a boolean to javascript
     # checking if the verb typed by the user matches the verbsolution
@@ -141,6 +125,7 @@ def iterateList(currentList):
 def listOfDictsToList(dictsList):
     newList = iterateList(dictsList)
     return newList
+
 
 def get_verb_solution(tense, infinitive, person, number):
     if tense == "Präsens":
