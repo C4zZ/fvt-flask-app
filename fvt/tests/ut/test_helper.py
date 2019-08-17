@@ -3,7 +3,7 @@ from fvt.helpers import remove_pronouns_from_user_input, get_person_from_verbfor
 
 class TestHelper:
 
-    # test methods for remove_pronouns_form_user_input(verbform)
+    # tests for remove_pronouns_form_user_input(verbform)
     def test_remove_pronouns_from_user_input_correct_pronoun_removal1(self):
         assert remove_pronouns_from_user_input("j'irai") == "irai"
 
@@ -46,14 +46,14 @@ class TestHelper:
     def test_remove_pronouns_from_user_input_no_removal(self):
         assert remove_pronouns_from_user_input("foo") == "foo"
 
-    # test methods for get_person_from_verbform(verbform)
+    # tests for get_person_from_verbform(verbform)
     def test_get_person_from_verbform1(self):
         assert get_person_from_verbform("3. Person Singular von aller") == "3"
 
     def test_get_person_from_verbform2(self):
         assert get_person_from_verbform("Person Singular von aller") == ""
 
-    # test methods for get_number_from_verbform(...)
+    # tests for get_number_from_verbform(verbform)
     def test_get_number_from_verbform1(self):
         assert get_number_from_verbform(build_verbform(3, "Singular", "présent", "aller")) == "Sg"
 
@@ -62,6 +62,13 @@ class TestHelper:
 
     def test_get_number_from_verbform3(self):
         assert get_number_from_verbform(build_verbform(3, "", "présent", "aller")) == ""
+
+    # tests for get_tense_from_verbform(verbform)
+    def test_get_tense_from_verbform1(self):
+        pass
+
+    def test_get_tense_from_verbform2(self):
+        pass
 
 def build_verbform(person, number, tense, baseVerb):
     return str(person) + ". Person " + number + ", " + tense + " von " + baseVerb + "."
