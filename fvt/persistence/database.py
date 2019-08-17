@@ -123,7 +123,17 @@ class PyMySQLDBConnection(object):
             return verb
 
     def build_présent(self, infinitive, person, number):
-        pass
+
+        with self as db:
+            cursor = db.connection.cursor()
+            column = determine_column(person, number)
+
+            cursor.execute("SELECT * FROM présent WHERE infinitiv = %s", (infinitive,))
+
+            verbrow = db.fetchone()
+            présent = verbrow[column]
+
+            return présent
 
 
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, isVerbCorrect, date):
@@ -173,3 +183,6 @@ def close_db():
 
     if db is not None:
         db.close()
+
+def determine_column(person, number):
+    return person + number
