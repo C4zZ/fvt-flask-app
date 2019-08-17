@@ -61,8 +61,6 @@ def isUserInputCorrect(user_input, verbform):
 
     number = get_number_from_verbform(verbform)
 
-    number = "Sg" if number == "Singular" else "Pl"
-
     # zeit and verb
     tense, infinitive = verbform.split(" von ", 1)[0], verbform.split(" von ", 1)[1]
     infinitive = infinitive.replace(".", "")
