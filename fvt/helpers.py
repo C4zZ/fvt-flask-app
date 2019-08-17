@@ -119,6 +119,18 @@ def listOfDictsToList(dictsList):
 
 
 def get_verb_solution(tense, infinitive, person, number):
+    """
+    get_verb_solution determines which tense to use for building the verbsolution, calls a respective function for
+    building the verbsolution for the needed tense and returns the newly built verbsolution.
+
+    :param tense: tense denotes the place in time of the action (condition, state of being, etc.) represented by the
+    verb.
+    :param infinitive: the base form of a verb.
+    :param person: person refers to whether the subject is first person (“je” or “nous”), second person (“tu” or “vous”)
+    or third person (“il”/“elle”/“on” or “ils”/“elles”).
+    :param number: number refers to whether the subject of the verb is singular or plural.
+    :return:
+    """
     if tense == "Präsens":
         verbsolution = buildprésent(infinitive, person, number)
 
@@ -137,8 +149,9 @@ def remove_pronouns_from_user_input(user_input):
     """
     remove_pronouns_from_user_input removes the substrings 'je', 'j'', 'tu', 'il', 'elle', 'on', 'nous', 'vous', 'ils',
     'elles' and their capitalized forms, if they are present, from the beginning of the user_input.
+
     :param user_input: the string from which the above substring should be removed.
-    :return: A string without the above mentioned substrings
+    :return: A string without the above mentioned substrings.
     """
 
     if user_input.startswith("j'") or user_input.startswith("J'"):
