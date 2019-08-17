@@ -134,6 +134,13 @@ def get_verb_solution(tense, infinitive, person, number):
 
 
 def remove_pronouns_from_user_input(user_input):
+    """
+    remove_pronouns_from_user_input removes the substrings 'je', 'j'', 'tu', 'il', 'elle', 'on', 'nous', 'vous', 'ils',
+    'elles' and their capitalized forms, if they are present, from the beginning of the user_input.
+    :param user_input: the string from which the above substring should be removed.
+    :return: A string without the above mentioned substrings
+    """
+
     if user_input.startswith("j'") or user_input.startswith("J'"):
         user_input = user_input.split("'", 1)[1]
 
