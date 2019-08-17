@@ -161,4 +161,10 @@ def get_person_from_verbform(verbform):
     return person
 
 def get_number_from_verbform(verbform):
-    pass
+    number = verbform.split(", ", 1)[0].split(" ")[2]
+    if number == "Singular":
+        return "Sg"
+    elif number == "Plural":
+        return "Pl"
+    else:
+        return ""
