@@ -149,6 +149,7 @@ def remove_pronouns_from_user_input(user_input):
 
     return user_input
 
+
 def get_person_from_verbform(verbform):
     person = verbform.split(". Person ", 1)[0]
     if len(person) > 1:
@@ -164,8 +165,10 @@ def get_number_from_verbform(verbform):
     else:
         return ""
 
+
 def get_infinitive_from_verbform(verbform):
     pass
+
 
 def get_tense_from_verbform(verbform):
     pass
