@@ -14,6 +14,18 @@ zeit = [
         #"Impérativ"
     ]
 
+personalpronomen = [
+        "je ", #??
+        "tu",
+        "il",
+        "elle",
+        "on",
+        "nous",
+        "vous",
+        "ils",
+        "elles"
+        ]
+
 def getNewVerb():
     # because all babe verbs reside inside the database, getting a random base verb is a separate database call. This
     # database call can not happen inside the Verb class which is why it happens outside and just before the Verb() call.
@@ -42,17 +54,6 @@ def isUserInputCorrect(userVerb, correctVerbform):
     erroneousUserInput = userVerb
 
     # removing the personal pronouns from the userinput if they exist at the beginning
-    personalpronomen = [
-        "je ", #??
-        "tu",
-        "il",
-        "elle",
-        "on",
-        "nous",
-        "vous",
-        "ils",
-        "elles"
-        ]
 
     if userVerb.startswith("j'") or userVerb.startswith("J'"):
         userVerb = userVerb.split("'", 1)[1]
@@ -76,17 +77,20 @@ def isUserInputCorrect(userVerb, correctVerbform):
     number = correctVerbform.split(", ", 1)[0]
     remove = number + ", "
     correctVerbform = correctVerbform.replace(remove, "", 1)
-    
+
     number = "Sg" if number == "Singular" else "Pl"
 
     # zeit and verb
     tense, infinitive = correctVerbform.split(" von ", 1)[0], correctVerbform.split(" von ", 1)[1]
     infinitive = infinitive.replace(".", "")
 
+    # getting the actual correct solution for the given verbform for comparing against the input of the user
     verbsolution = get_verb_solution(tense, infinitive, person, number)
 
+    # determine wheter the user input is correct or not
     isVerbCorrect = True if userVerb == verbsolution else False
 
+    # tracking users performance with the help of given data
     if isVerbCorrect:
         callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
