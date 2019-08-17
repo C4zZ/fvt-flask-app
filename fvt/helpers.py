@@ -141,3 +141,6 @@ def iterateList(currentList):
 def listOfDictsToList(dictsList):
     newList = iterateList(dictsList)
     return newList
+
+def get_verb_solution(tense):
+    pass
