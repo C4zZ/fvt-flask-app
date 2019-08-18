@@ -58,6 +58,25 @@ class TestDatabase:
     def test_buildpresent_aller6(self, testDB):
         assert testDB.build_présent("aller", "3", "Pl") == "vont"
 
+    # tests for irregular verb avoir
+    def test_buildpresent_avoir1(self, testDB):
+        assert testDB.build_présent("avoir", "1", "Sg") == "ai"
+
+    def test_buildpresent_avoir2(self, testDB):
+        assert testDB.build_présent("avoir", "2", "Sg") == "as"
+
+    def test_buildpresent_avoir3(self, testDB):
+        assert testDB.build_présent("avoir", "3", "Sg") == "a"
+
+    def test_buildpresent_avoir4(self, testDB):
+        assert testDB.build_présent("avoir", "1", "Pl") == "avons"
+
+    def test_buildpresent_avoir5(self, testDB):
+        assert testDB.build_présent("avoir", "2", "Pl") == "avez"
+
+    def test_buildpresent_avoir6(self, testDB):
+        assert testDB.build_présent("avoir", "3", "Pl") == "ont"
+
 def get_trackUserPerformance_results_for(db, verbform, verbsolution, erroneousUserInput, date):
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
