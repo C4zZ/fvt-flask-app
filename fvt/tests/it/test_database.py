@@ -19,7 +19,8 @@ class TestDatabase:
         query = get_trackUserPerformance_results_for(testDB, verbform, verbsolution, erroneousUserInput, date)
         assert 1 in query
         assert 0 not in query[1:]
-
+    
+    # tests for irregular verb être
     def test_buildpresent_etre1(self, testDB):
         assert testDB.build_présent("être", "1", "Sg") == "suis"
 
@@ -37,6 +38,25 @@ class TestDatabase:
 
     def test_buildpresent_etre6(self, testDB):
         assert testDB.build_présent("être", "3", "Pl") == "sont"
+        
+    # tests for irregular verb aller
+    def test_buildpresent_aller1(self, testDB):
+        assert testDB.build_présent("aller", "1", "Sg") == "vais"
+
+    def test_buildpresent_aller2(self, testDB):
+        assert testDB.build_présent("aller", "2", "Sg") == "vas"
+
+    def test_buildpresent_aller3(self, testDB):
+        assert testDB.build_présent("aller", "3", "Sg") == "va"
+
+    def test_buildpresent_aller4(self, testDB):
+        assert testDB.build_présent("aller", "1", "Pl") == "allons"
+
+    def test_buildpresent_aller5(self, testDB):
+        assert testDB.build_présent("aller", "2", "Pl") == "allez"
+
+    def test_buildpresent_aller6(self, testDB):
+        assert testDB.build_présent("aller", "3", "Pl") == "vont"
 
 def get_trackUserPerformance_results_for(db, verbform, verbsolution, erroneousUserInput, date):
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
