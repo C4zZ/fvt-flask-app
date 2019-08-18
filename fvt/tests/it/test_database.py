@@ -20,6 +20,9 @@ class TestDatabase:
         assert 1 in query
         assert 0 not in query[1:]
 
+    def test_buildprésent1(self, testDB):
+        pass
+
 
 def get_query_results_for(db, verbform, verbsolution, erroneousUserInput, date):
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
