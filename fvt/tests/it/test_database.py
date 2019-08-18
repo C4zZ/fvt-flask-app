@@ -13,10 +13,12 @@ class TestDatabase:
         erroneousUserInput = "WRONG_USER_INPUT"
         query = get_query_results_for(testDB, verbform, verbsolution, erroneousUserInput, date)
         assert 0 in query
+        assert 1 not in query[1:]
 
     def test_trackUserPerformance_correct_verb(self, testDB):
         query = get_query_results_for(testDB, verbform, verbsolution, erroneousUserInput, date)
         assert 1 in query
+        assert 0 not in query[1:]
 
 
 def get_query_results_for(db, verbform, verbsolution, erroneousUserInput, date):
