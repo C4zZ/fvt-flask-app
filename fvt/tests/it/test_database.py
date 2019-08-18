@@ -56,6 +56,15 @@ class TestDatabase:
         assert testDB.build_présent("faire", "2", "Pl") == "faites"
         assert testDB.build_présent("faire", "3", "Pl") == "font"
 
+    # tests for irregular verb prendre
+    def test_buildpresent_prendre(self, testDB):
+        assert testDB.build_présent("prendre", "1", "Sg") == "prends"
+        assert testDB.build_présent("prendre", "2", "Sg") == "prends"
+        assert testDB.build_présent("prendre", "3", "Sg") == "prend"
+        assert testDB.build_présent("prendre", "1", "Pl") == "prenons"
+        assert testDB.build_présent("prendre", "2", "Pl") == "prenez"
+        assert testDB.build_présent("prendre", "3", "Pl") == "prennent"
+
 def get_trackUserPerformance_results_for(db, verbform, verbsolution, erroneousUserInput, date):
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
