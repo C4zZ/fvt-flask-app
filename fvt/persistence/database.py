@@ -134,12 +134,12 @@ class PyMySQLDBConnection(object):
     def build_présent(self, infinitive, person, number):
 
         with self as db:
-            cursor = db.connection.cursor()
+            cursor = db.connection.cursor(PyMySQLdb.cursors.DictCursor)
             column = determine_column(person, number)
 
             cursor.execute("SELECT * FROM présent WHERE infinitiv = %s", (infinitive,))
 
-            verbrow = db.fetchone()
+            verbrow = cursor.fetchone()
             présent = verbrow[column]
 
             return présent
