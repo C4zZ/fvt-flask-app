@@ -27,6 +27,16 @@ class TestApp:
         assert res.get_data(as_text=True) == "True"
         assert res.status_code == 200
 
+    def test_validateverb_POST_userinput_präsens_success(self, test_client):
+        dummydata = {
+            "verbform": "2. Person Singular, Präsens von avoir.",
+            "userverb": "tu as"
+        }
+        res = test_client.post("/validateverb", data=dummydata)
+
+        assert res.get_data(as_text=True) == "True"
+        assert res.status_code == 200
+
     def test_validateverb_POST_userinput_fail(self, test_client):
         dummydata = {
             "verbform": "2. Person Singular, Passé composé von avoir.",
