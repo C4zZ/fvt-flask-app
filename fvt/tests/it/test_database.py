@@ -28,6 +28,9 @@ class TestDatabase:
         assert testDB.build_présent("être", "1", "Pl") == "sommes"
         assert testDB.build_présent("être", "2", "Pl") == "êtes"
         assert testDB.build_présent("être", "3", "Pl") == "sont"
+
+    def test_build_passe_compose_etre(self, testDB):
+        pass
         
     # tests for irregular verb aller
     def test_buildpresent_aller(self, testDB):
