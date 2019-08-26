@@ -7,16 +7,6 @@ from fvt.persistence.database import conn
 db = conn.cursor(MySQLdb.cursors.DictCursor)
 
 
-# présent
-def buildprésent(inf, person, number):
-
-    column = determine_column(person, number)
-    db.execute("SELECT * FROM présent WHERE infinitiv = %s", (inf,))
-    verbrow = db.fetchone()
-    verbsolution = verbrow[column]
-    return verbsolution
-
-
 # passé-composé 
 def buildpc(inf, person, number):
     column = determine_column(person, number)
