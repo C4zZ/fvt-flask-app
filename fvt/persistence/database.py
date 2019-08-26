@@ -157,9 +157,10 @@ class PyMySQLDBConnection(object):
             cursor = db.connection.cursor(PyMySQLdb.cursors.DictCursor)
             column = determine_column(person, number)
 
-            cursor.execute("SELECT vom FROM présent WHERE infinitiv = %s", (infinitive,))
-
+            cursor.execute("SELECT * FROM présent WHERE infinitiv = %s", (infinitive,))
             vom = cursor.fetchone()["vom"]
+
+            cursor.execute("SELECT * FROM présent WHERE infinitiv = %s", (infinitive,))
             pp = cursor.fetchone()["pp"]
 
             # if current verb is a verb of motion (vom) in passé composé

@@ -29,8 +29,14 @@ class TestDatabase:
         assert testDB.build_présent("être", "2", "Pl") == "êtes"
         assert testDB.build_présent("être", "3", "Pl") == "sont"
 
+    #TODO finish tests for passé comppsé
     def test_build_passe_compose_etre(self, testDB):
-        pass
+        assert testDB.build_passé_composé("être", "1", "Sg") == "ai été"
+        assert testDB.build_passé_composé("être", "2", "Sg") == "as été"
+        assert testDB.build_passé_composé("être", "3", "Sg") == "a été"
+        assert testDB.build_passé_composé("être", "1", "Pl") == "avons été"
+        assert testDB.build_passé_composé("être", "2", "Pl") == "avez été"
+        assert testDB.build_passé_composé("être", "3", "Pl") == "ont été"
         
     # tests for irregular verb aller
     def test_buildpresent_aller(self, testDB):
