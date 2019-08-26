@@ -17,7 +17,7 @@ class TestApp:
         assert res.data.decode("utf-8") != ""
         assert len(res.data) > 0
 
-    def test_validateverb_POST_userinput_success(self, test_client):
+    def test_validateverb_POST_userinput_passé_composé_success(self, test_client):
         dummydata = {
             "verbform": "2. Person Singular, Passé composé von avoir.",
             "userverb": "tu as eu"
