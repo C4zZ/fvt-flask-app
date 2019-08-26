@@ -151,6 +151,9 @@ class PyMySQLDBConnection(object):
 
             return présent
 
+    def build_passé_composé(self, infinitive, person, number):
+        pass
+
 
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date):
     """
