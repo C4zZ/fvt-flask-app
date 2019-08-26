@@ -171,6 +171,9 @@ def callGetRandomBaseVerb():
     verb = db.getRandomBaseVerb()
     return verb
 
+def call_build_present(infinitive, person, number):
+    pass
+
 
 def get_db():
     """
