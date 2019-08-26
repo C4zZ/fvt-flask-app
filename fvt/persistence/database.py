@@ -152,7 +152,28 @@ class PyMySQLDBConnection(object):
             return présent
 
     def build_passé_composé(self, infinitive, person, number):
-        pass
+
+        with self as db:
+            cursor = db.connection.cursor(PyMySQLdb.cursors.DictCursor)
+            column = determine_column(person, number)
+
+            cursor.execute("SELECT vom FROM présent WHERE infinitiv = %s", (infinitive,))
+
+            vom = cursor.fetchone()["vom"]
+            pp = cursor.fetchone()["pp"]
+
+            # if current verb is a verb of motion (vom) in passé composé
+            # then we need to use the participe passé of être as the auxiliaryverb
+            if vom == "1":
+                cursor.execute("SELECT * FROM présent WHERE infinitiv = 'être'")
+                auxiliary = cursor.fetchone()[column]
+                result = auxiliary
+            else:
+                cursor.execute("SELECT * FROM présent WHERE infinitiv = 'avoir'")
+                auxiliary = cursor.fetchone()[column]
+                result = auxiliary
+
+            return result + " " + pp
 
 
 def callTrackUserPerformance(verbform, verbsolution, erroneousUserInput, date):
