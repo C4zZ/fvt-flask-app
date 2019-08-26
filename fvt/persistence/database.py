@@ -132,6 +132,13 @@ class PyMySQLDBConnection(object):
             return verb
 
     def build_présent(self, infinitive, person, number):
+        """
+        build_présent constructs the french tense présent out of the given parameters and returns it.
+        :param infinitive: the basic form of a verb, without an inflection binding it to a particular subject or tense
+        :param person: person refers to whether the subject is first person (“je” or “nous”), second person (“tu” or “vous”) or third person (“il”/“elle”/“on” or “ils”/“elles”).
+        :param number: number refers to whether the subject of the verb is singular or plural.
+        :return: the verb constructed with the help of the given parameters in the french présent tense.
+        """
 
         with self as db:
             cursor = db.connection.cursor(PyMySQLdb.cursors.DictCursor)
