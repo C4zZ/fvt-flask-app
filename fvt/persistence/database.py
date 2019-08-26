@@ -179,6 +179,14 @@ def callGetRandomBaseVerb():
     return verb
 
 def call_build_présent(infinitive, person, number):
+    """
+    call_build_présent gets the database from the current application context and calls the database class intern
+    method call_build_présent(...).
+    :param infinitive: the basic form of a verb, without an inflection binding it to a particular subject or tense
+    :param person: person refers to whether the subject is first person (“je” or “nous”), second person (“tu” or “vous”) or third person (“il”/“elle”/“on” or “ils”/“elles”).
+    :param number: number refers to whether the subject of the verb is singular or plural.
+    :return:
+    """
     db = get_db()
     présent = db.build_présent(infinitive, person, number)
     return présent
