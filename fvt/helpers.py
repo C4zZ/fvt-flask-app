@@ -1,6 +1,6 @@
 import datetime
 
-from fvt.persistence.database import callTrackUserPerformance, callGetRandomBaseVerb
+from fvt.persistence.database import callTrackUserPerformance, callGetRandomBaseVerb, call_build_présent
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
@@ -106,7 +106,7 @@ def get_verb_solution(tense, infinitive, person, number):
     :return:
     """
     if tense == "Präsens":
-        verbsolution = buildprésent(infinitive, person, number)
+        verbsolution = call_build_présent(infinitive, person, number)
 
 
     elif tense == "Passé composé":
