@@ -97,6 +97,14 @@ class TestDatabase:
         assert testDB.build_présent("prendre", "2", "Pl") == "prenez"
         assert testDB.build_présent("prendre", "3", "Pl") == "prennent"
 
+    def test_build_passe_compose_prendre(self, testDB):
+        assert testDB.build_passé_composé("prendre", "1", "Sg") == "ai pris"
+        assert testDB.build_passé_composé("prendre", "2", "Sg") == "as pris"
+        assert testDB.build_passé_composé("prendre", "3", "Sg") == "a pris"
+        assert testDB.build_passé_composé("prendre", "1", "Pl") == "avons pris"
+        assert testDB.build_passé_composé("prendre", "2", "Pl") == "avez pris"
+        assert testDB.build_passé_composé("prendre", "3", "Pl") == "ont pris"
+
 def get_trackUserPerformance_results_for(db, verbform, verbsolution, erroneousUserInput, date):
     db.trackUserPerformance(verbform, verbsolution, erroneousUserInput, date)
 
