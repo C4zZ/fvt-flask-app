@@ -62,7 +62,15 @@ class TestDatabase:
         assert testDB.build_présent("avoir", "1", "Pl") == "avons"
         assert testDB.build_présent("avoir", "2", "Pl") == "avez"
         assert testDB.build_présent("avoir", "3", "Pl") == "ont"
-    
+
+    def test_build_passe_compose_avoir(self, testDB):
+        assert testDB.build_passé_composé("avoir", "1", "Sg") == "ai eu"
+        assert testDB.build_passé_composé("avoir", "2", "Sg") == "as eu"
+        assert testDB.build_passé_composé("avoir", "3", "Sg") == "a eu"
+        assert testDB.build_passé_composé("avoir", "1", "Pl") == "avons eu"
+        assert testDB.build_passé_composé("avoir", "2", "Pl") == "avez eu"
+        assert testDB.build_passé_composé("avoir", "3", "Pl") == "ont eu"
+        
     # tests for irregular verb faire
     def test_buildpresent_faire(self, testDB):
         assert testDB.build_présent("faire", "1", "Sg") == "fais"
