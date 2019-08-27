@@ -165,7 +165,11 @@ class PyMySQLDBConnection(object):
 
             # if current verb is a verb of motion (vom) in passé composé
             # then we need to use the participe passé of être as the auxiliaryverb
-            if vom == "1":
+            if vom == 1:
+
+                if number == "Pl":
+                    pp = pp + "s"
+
                 cursor.execute("SELECT * FROM présent WHERE infinitiv = 'être'")
                 auxiliary = cursor.fetchone()[column]
                 result = auxiliary

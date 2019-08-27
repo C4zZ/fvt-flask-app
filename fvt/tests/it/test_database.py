@@ -47,7 +47,12 @@ class TestDatabase:
         assert testDB.build_présent("aller", "3", "Pl") == "vont"
 
     def test_build_passe_compose_aller(self, testDB):
-        pass
+        assert testDB.build_passé_composé("aller", "1", "Sg") == "suis allé"
+        assert testDB.build_passé_composé("aller", "2", "Sg") == "es allé"
+        assert testDB.build_passé_composé("aller", "3", "Sg") == "est allé"
+        assert testDB.build_passé_composé("aller", "1", "Pl") == "sommes allés"
+        assert testDB.build_passé_composé("aller", "2", "Pl") == "êtes allés"
+        assert testDB.build_passé_composé("aller", "3", "Pl") == "sont allés"
 
     # tests for irregular verb avoir
     def test_buildpresent_avoir(self, testDB):
