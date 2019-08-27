@@ -220,6 +220,11 @@ def call_build_présent(infinitive, person, number):
     présent = db.build_présent(infinitive, person, number)
     return présent
 
+def call_build_passé_composé(infinitive, person, number):
+    db = get_db()
+    passé_composé = db.build_passé_composé(infinitive, person, number)
+    return passé_composé
+
 
 def get_db():
     """

@@ -1,6 +1,7 @@
 import datetime
 
-from fvt.persistence.database import callTrackUserPerformance, callGetRandomBaseVerb, call_build_présent
+from fvt.persistence.database import callTrackUserPerformance, callGetRandomBaseVerb, call_build_présent, \
+    call_build_passé_composé
 from .verb import Verb
 
 # with this import all tests are green because the db instance inside grammar has a dictCursor
@@ -110,7 +111,7 @@ def get_verb_solution(tense, infinitive, person, number):
 
 
     elif tense == "Passé composé":
-        verbsolution = buildpc(infinitive, person, number)
+        verbsolution = call_build_passé_composé(infinitive, person, number)
 
     # checking a verb in a different tense
     else:
