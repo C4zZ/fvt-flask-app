@@ -79,6 +79,14 @@ class TestDatabase:
         assert testDB.build_présent("faire", "1", "Pl") == "faisons"
         assert testDB.build_présent("faire", "2", "Pl") == "faites"
         assert testDB.build_présent("faire", "3", "Pl") == "font"
+    
+    def test_build_passe_compose_faire(self, testDB):
+        assert testDB.build_passé_composé("faire", "1", "Sg") == "ai fait"
+        assert testDB.build_passé_composé("faire", "2", "Sg") == "as fait"
+        assert testDB.build_passé_composé("faire", "3", "Sg") == "a fait"
+        assert testDB.build_passé_composé("faire", "1", "Pl") == "avons fait"
+        assert testDB.build_passé_composé("faire", "2", "Pl") == "avez fait"
+        assert testDB.build_passé_composé("faire", "3", "Pl") == "ont fait"
 
     # tests for irregular verb prendre
     def test_buildpresent_prendre(self, testDB):
