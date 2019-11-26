@@ -4,9 +4,6 @@ from fvt.persistence.database import callTrackUserPerformance, callGetRandomBase
     call_build_passé_composé
 from .verb import Verb
 
-# with this import all tests are green because the db instance inside grammar has a dictCursor
-from . grammar import *
-
 
 zeit = [
         "Präsens",
